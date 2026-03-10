@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ainettside.no — Enkel nettside for alle</title>
+<meta name="description" content="Trenger du en enkel nettside? Vi lager den for deg. 299 kr/mnd. Ingen oppstart. Ring oss om du trenger hjelp.">
+<meta name="theme-color" content="#0F172A">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="canonical" href="https://ainettside.no/">
+<meta property="og:title" content="ainettside.no — Enkel nettside for alle">
+<meta property="og:description" content="Vi lager nettsiden din. 299 kr/mnd. Ring oss når som helst.">
+<meta property="og:locale" content="nb_NO">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{background:#0F172A;color:#fff;font-family:'Outfit',sans-serif;-webkit-font-smoothing:antialiased}
+::selection{background:rgba(0,255,136,.3)}
+.mono{font-family:'IBM Plex Mono',monospace}
+.grd{background:linear-gradient(135deg,#00FF88,#00CCFF,#8B5CF6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* ═══ NAV ═══ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px clamp(20px,5vw,48px);display:flex;align-items:center;justify-content:space-between;transition:all .3s}
+.nav.scrolled{background:rgba(15,23,42,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(148,163,184,.08)}
+.nav-logo{font-size:20px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;display:flex;align-items:center;gap:10px}
+.nav-logo .lm{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#00FF88,#00CCFF);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:#0F172A}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-size:13px;color:rgba(255,255,255,.3);text-decoration:none;font-weight:500;letter-spacing:.04em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{padding:10px 24px;border-radius:8px;background:linear-gradient(135deg,#00FF88,#00CCFF);color:#0F172A;font-size:13px;font-weight:800;border:none;cursor:pointer;letter-spacing:.06em;text-transform:uppercase;transition:all .3s}
+.nav-cta:hover{box-shadow:0 0 30px rgba(0,255,136,.25);transform:translateY(-1px)}
+.mob-btn{display:none;background:none;border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:8px;cursor:pointer;color:#fff}
+
+/* ═══ HERO ═══ */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:120px clamp(20px,5vw,48px) 80px}
+.hero-glow{position:absolute;border-radius:50%;filter:blur(120px);pointer-events:none;opacity:.5}
+.g1{width:600px;height:600px;background:radial-gradient(circle,rgba(0,255,136,.1),transparent 60%);top:-10%;right:20%}
+.g2{width:500px;height:500px;background:radial-gradient(circle,rgba(0,204,255,.07),transparent 60%);bottom:-10%;left:10%}
+.g3{width:350px;height:350px;background:radial-gradient(circle,rgba(139,92,246,.06),transparent 60%);top:40%;left:40%}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 50% 60% at 30% 50%,rgba(0,0,0,.3),transparent 70%);pointer-events:none}
+.hero-inner{display:flex;align-items:center;position:relative;z-index:2;width:100%;max-width:1300px;margin:0 auto;gap:clamp(32px,5vw,72px)}
+.hero-text{flex:1;min-width:0}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 18px;border-radius:100px;border:1px solid rgba(0,255,136,.15);background:rgba(0,255,136,.04);margin-bottom:32px}
+.hero-badge-dot{width:8px;height:8px;border-radius:50%;background:#00FF88;box-shadow:0 0 12px rgba(0,255,136,.5);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-badge span{font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(0,255,136,.6);letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.hero h1{font-size:clamp(2.8rem,7vw,6rem);font-weight:900;line-height:.85;letter-spacing:-.04em;text-transform:uppercase;margin-bottom:28px}
+.hero h1 .outline{display:block;-webkit-text-stroke:2px rgba(255,255,255,.5);color:transparent}
+.hero-sub{font-size:clamp(15px,1.5vw,18px);color:rgba(255,255,255,.3);max-width:440px;line-height:1.7;margin-bottom:36px;font-weight:300}
+.hero-sub strong{color:rgba(255,255,255,.65);font-weight:600}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+.btn-g{padding:16px 36px;border-radius:10px;background:linear-gradient(135deg,#00FF88,#00CCFF);color:#0F172A;font-size:15px;font-weight:800;border:none;cursor:pointer;text-transform:uppercase;letter-spacing:.08em;transition:all .3s;display:inline-flex;align-items:center;gap:10px;box-shadow:0 0 40px rgba(0,255,136,.12)}
+.btn-g:hover{box-shadow:0 0 60px rgba(0,255,136,.25);transform:translateY(-2px)}
+.btn-o{padding:16px 28px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.4);font-size:15px;font-weight:600;cursor:pointer;text-transform:uppercase;letter-spacing:.06em;transition:all .3s}
+.btn-o:hover{border-color:rgba(0,255,136,.25);color:#00FF88}
+.hero-price{font-family:'IBM Plex Mono',monospace;font-size:13px;color:rgba(255,255,255,.2)}
+.hero-price strong{color:#00FF88;font-weight:600}
+
+/* ═══ HERO BROWSER ═══ */
+.hbw{flex:0 0 clamp(300px,38vw,500px);position:relative}
+.hbw-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,255,136,.04),transparent 55%);pointer-events:none}
+.hbr{width:100%;border-radius:14px;background:#1E293B;border:1px solid rgba(255,255,255,.06);overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.4)}
+.hbr-bar{height:38px;background:#1E293B;display:flex;align-items:center;padding:0 14px;gap:7px;border-bottom:1px solid rgba(255,255,255,.04)}
+.dot{width:9px;height:9px;border-radius:50%}.dot.r{background:#FF5F57}.dot.y{background:#FFBD2E}.dot.g{background:#28C840}
+.hbr-url{flex:1;margin-left:12px;height:22px;border-radius:5px;background:rgba(255,255,255,.04);display:flex;align-items:center;padding:0 10px}
+.hbr-url span{font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(255,255,255,.2)}
+.tc{border-right:1.5px solid #00FF88;padding-right:1px;animation:bk .8s step-end infinite}
+@keyframes bk{50%{border-color:transparent}}
+.hbr-body{padding:20px;min-height:380px;position:relative;overflow:hidden}
+.he{opacity:0;transform:translateY(8px) scale(.98);transition:all .45s cubic-bezier(.22,1,.36,1)}.he.show{opacity:1;transform:none}
+/* Mini site elements for hero */
+.hmn{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.04)}
+.hmn-logo{display:flex;align-items:center;gap:6px}
+.hmn-sq{width:18px;height:18px;border-radius:5px;background:linear-gradient(135deg,#00FF88,#00CCFF)}
+.hmn-t{width:50px;height:8px;border-radius:4px;background:rgba(255,255,255,.12)}
+.hmn-links{display:flex;gap:6px}.hmn-links span{width:28px;height:6px;border-radius:3px;background:rgba(255,255,255,.05)}
+.hmn-cta{width:46px;height:18px;border-radius:4px;background:linear-gradient(135deg,#00FF88,#00CCFF);opacity:.7}
+.hmh{margin-bottom:12px}
+.hmh1{height:14px;width:82%;border-radius:4px;background:linear-gradient(90deg,rgba(255,255,255,.7),rgba(255,255,255,.4));margin-bottom:6px}
+.hmh2{height:14px;width:50%;border-radius:4px;background:linear-gradient(90deg,#00FF88,#00CCFF)}
+.hms1{height:5px;width:68%;border-radius:3px;background:rgba(255,255,255,.06);margin-top:10px}
+.hms2{height:5px;width:48%;border-radius:3px;background:rgba(255,255,255,.04);margin-top:4px}
+.hmb{display:flex;gap:6px;margin:14px 0 18px}
+.hmb-p{width:72px;height:24px;border-radius:6px;background:linear-gradient(135deg,#00FF88,#00CCFF)}
+.hmb-o{width:56px;height:24px;border-radius:6px;border:1px solid rgba(255,255,255,.07)}
+.hmc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.hmc{border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.03);background:rgba(255,255,255,.015)}
+.hmc-img{height:44px}
+.hmc:nth-child(1) .hmc-img{background:linear-gradient(135deg,rgba(139,92,246,.25),rgba(0,204,255,.15))}
+.hmc:nth-child(2) .hmc-img{background:linear-gradient(135deg,rgba(0,255,136,.15),rgba(0,204,255,.25))}
+.hmc:nth-child(3) .hmc-img{background:linear-gradient(135deg,rgba(255,209,102,.15),rgba(255,107,107,.15))}
+.hmc-bd{padding:6px}
+.hmc-ln{height:4px;border-radius:2px;background:rgba(255,255,255,.05);margin-bottom:3px}.hmc-ln:last-child{width:55%}
+.hmf{display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid rgba(255,255,255,.03)}
+.hmf-l{width:40px;height:5px;border-radius:3px;background:rgba(255,255,255,.05)}
+.hmf-links{display:flex;gap:5px}.hmf-links span{width:18px;height:4px;border-radius:2px;background:rgba(255,255,255,.03)}
+/* AI cursor */
+.ac{position:absolute;width:20px;height:20px;pointer-events:none;z-index:20;opacity:0;transition:left .45s cubic-bezier(.22,1,.36,1),top .45s cubic-bezier(.22,1,.36,1),opacity .25s;filter:drop-shadow(0 2px 8px rgba(0,255,136,.4))}.ac.show{opacity:1}
+.sp{position:absolute;pointer-events:none;z-index:15}
+.sp svg{animation:spk .65s ease-out forwards}
+@keyframes spk{0%{opacity:0;transform:scale(0) rotate(0)}35%{opacity:1;transform:scale(1.4) rotate(8deg)}100%{opacity:0;transform:scale(.3) rotate(20deg);translate:0 -12px}}
+.ai-st{position:absolute;bottom:12px;left:20px;right:20px;display:flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(0,255,136,.4);opacity:0;transition:opacity .25s}.ai-st.show{opacity:1}
+.ai-st::before{content:'';width:5px;height:5px;border-radius:50%;background:#00FF88;box-shadow:0 0 8px rgba(0,255,136,.5);animation:pulse 1.5s ease-in-out infinite;flex-shrink:0}
+
+/* ═══ SECTIONS ═══ */
+.sec{padding:clamp(80px,12vh,140px) clamp(20px,5vw,48px)}
+.sec-inner{max-width:1200px;margin:0 auto}
+.sec-label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:rgba(0,255,136,.4);font-weight:500;margin-bottom:12px}
+.sec-title{font-size:clamp(1.8rem,4vw,3rem);font-weight:900;text-transform:uppercase;letter-spacing:-.03em;margin-bottom:14px;line-height:1.05}
+.sec-sub{font-size:clamp(15px,1.5vw,18px);color:rgba(255,255,255,.25);max-width:540px;line-height:1.7;margin-bottom:48px;font-weight:300}
+.border-t{border-top:1px solid rgba(255,255,255,.04)}
+
+/* STATS */
+.stats{border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04);padding:0 clamp(20px,5vw,48px)}
+.stats-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:28px 20px;text-align:center;border-right:1px solid rgba(255,255,255,.04)}.stat:last-child{border:none}
+.stat-v{font-size:clamp(28px,4vw,42px);font-weight:900;letter-spacing:-.03em;line-height:1;margin-bottom:6px;background:linear-gradient(135deg,#fff,rgba(255,255,255,.5));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-l{font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(255,255,255,.18);letter-spacing:.15em;text-transform:uppercase}
+
+/* WHO CARDS */
+.hex-wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;max-width:900px;margin:0 auto}
+.hex-row{display:flex;gap:6px;justify-content:center}
+.hex-row.offset{margin-top:-22px}
+.hex{width:108px;height:120px;clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);background:#1E293B;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:all .3s;position:relative;overflow:hidden}
+.hex:hover{background:#253449}
+.hex:hover .hex-scene{opacity:.5}
+.hex:hover .hex-name{color:rgba(255,255,255,.7)}
+.hex-scene{position:absolute;inset:0;opacity:.3;transition:opacity .3s}
+.hex-scene svg{width:100%;height:100%;display:block}
+.hex-icon{position:relative;z-index:2;margin-bottom:4px}
+.hex-name{position:relative;z-index:2;font-size:9px;font-weight:700;text-transform:uppercase;color:rgba(148,163,184,.45);letter-spacing:.03em;text-align:center;transition:color .3s}
+@media(max-width:700px){.hex{width:90px;height:100px}.hex-name{font-size:8px}}
+@media(max-width:500px){.hex{width:76px;height:84px}.hex-icon svg{width:18px;height:18px}}
+
+/* ═══ DEMO ═══ */
+.demo{border-top:1px solid rgba(255,255,255,.04);position:relative;overflow:hidden}
+.demo-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:600px;background:radial-gradient(ellipse,rgba(0,255,136,.04),transparent 60%);pointer-events:none}
+.demo-inner{max-width:1200px;margin:0 auto;position:relative;z-index:2}
+.demo-layout{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:start}
+.demo-text{padding-top:20px}
+.demo-text h3{font-size:clamp(1.1rem,2vw,1.4rem);font-weight:700;margin-bottom:12px;color:rgba(255,255,255,.6)}
+.demo-text p{font-size:15px;color:rgba(255,255,255,.25);line-height:1.75;margin-bottom:16px}
+.scenario{padding:20px 24px;border-radius:12px;border:1px solid rgba(0,255,136,.08);background:rgba(0,255,136,.02);margin-bottom:24px}
+.scenario h4{font-size:14px;font-weight:700;color:#00FF88;margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em}
+.scenario p{color:rgba(255,255,255,.35);margin-bottom:0}
+.demo-step{display:flex;gap:14px;margin-bottom:16px;align-items:flex-start}
+.demo-step-num{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#00FF88,#00CCFF);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#0F172A;flex-shrink:0;margin-top:2px}
+.demo-step h5{font-size:14px;font-weight:700;margin-bottom:2px}
+.demo-step p{font-size:13px;color:rgba(255,255,255,.25);line-height:1.5;margin:0}
+
+/* Demo browser */
+.dbw{position:relative}
+.dbr{width:100%;border-radius:14px;background:#1E293B;border:1px solid rgba(255,255,255,.06);overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.4)}
+.dbr-bar{height:38px;background:#1E293B;display:flex;align-items:center;padding:0 14px;gap:7px;border-bottom:1px solid rgba(255,255,255,.04)}
+.dbr-url{flex:1;margin-left:12px;height:22px;border-radius:5px;background:rgba(255,255,255,.04);display:flex;align-items:center;padding:0 10px}
+.dbr-url span{font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(255,255,255,.2)}
+.phase{display:none;padding:20px;min-height:380px;position:relative}.phase.active{display:block;animation:fadeIn .4s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.phase-label{font-family:'IBM Plex Mono',monospace;font-size:9px;color:rgba(0,255,136,.4);letter-spacing:.15em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.phase-label::before{content:'';width:5px;height:5px;border-radius:50%;background:#00FF88;box-shadow:0 0 6px rgba(0,255,136,.4);animation:pulse 1.5s ease-in-out infinite}
+.form-row{margin-bottom:10px}
+.form-lbl{font-size:10px;color:rgba(255,255,255,.25);margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.form-val{height:28px;border-radius:6px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);display:flex;align-items:center;padding:0 10px;font-size:12px;color:rgba(255,255,255,.5);overflow:hidden}
+.form-val .typed{overflow:hidden;white-space:nowrap;border-right:1.5px solid #00FF88;animation:bk .7s step-end infinite}
+.form-textarea{min-height:56px;align-items:flex-start;padding:8px 10px}
+.form-textarea .typed{white-space:normal;font-size:11px;line-height:1.5}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.form-btn{margin-top:12px;width:100%;height:32px;border-radius:6px;background:linear-gradient(135deg,#00FF88,#00CCFF);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#0F172A;text-transform:uppercase;letter-spacing:.08em;opacity:0;transition:opacity .4s}.form-btn.show{opacity:1}
+.build-status{text-align:center;padding-top:40px}
+.build-spinner{width:48px;height:48px;border-radius:50%;border:3px solid rgba(0,255,136,.1);border-top-color:#00FF88;animation:spin .8s linear infinite;margin:0 auto 16px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.build-status h4{font-size:16px;font-weight:800;text-transform:uppercase;margin-bottom:6px}
+.build-status p{font-size:12px;color:rgba(255,255,255,.25)}
+.build-progress{margin-top:20px;max-width:240px;margin-left:auto;margin-right:auto}
+.build-bar{height:4px;border-radius:2px;background:rgba(255,255,255,.05);overflow:hidden;margin-bottom:12px}
+.build-bar-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,#00FF88,#00CCFF);width:0;transition:width .5s ease}
+.build-log{font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(255,255,255,.2);text-align:left}
+.build-log div{margin-bottom:4px;opacity:0;transform:translateX(-4px);transition:all .3s}.build-log div.show{opacity:1;transform:none}.build-log .ok{color:#00FF88}
+/* Result mini site (Ole's plumber site) */
+.re{opacity:0;transform:translateY(8px) scale(.98);transition:all .45s cubic-bezier(.22,1,.36,1)}.re.show{opacity:1;transform:none}
+.rmn{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.04)}
+.rmn-logo{display:flex;align-items:center;gap:6px}
+.rmn-sq{width:18px;height:18px;border-radius:5px;background:linear-gradient(135deg,#3B82F6,#60A5FA)}
+.rmn-t{width:65px;height:8px;border-radius:4px;background:rgba(255,255,255,.12)}
+.rmn-links{display:flex;gap:6px}.rmn-links span{width:28px;height:6px;border-radius:3px;background:rgba(255,255,255,.05)}
+.rmn-cta{width:48px;height:18px;border-radius:4px;background:#3B82F6;opacity:.8}
+.rmh1{height:14px;width:85%;border-radius:4px;background:rgba(255,255,255,.7);margin-bottom:6px}
+.rmh2{height:10px;width:55%;border-radius:4px;background:rgba(255,255,255,.12)}
+.rmsub{height:5px;border-radius:3px;background:rgba(255,255,255,.06);margin-top:10px}
+.rmsub2{height:5px;width:70%;border-radius:3px;background:rgba(255,255,255,.04);margin-top:4px}
+.rmbtn-row{display:flex;gap:6px;margin:14px 0 18px}
+.rmbtn-p{width:72px;height:24px;border-radius:6px;background:#3B82F6}
+.rmbtn-o{width:56px;height:24px;border-radius:6px;border:1px solid rgba(255,255,255,.07)}
+.rmcards{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.rmcard{border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.03);background:rgba(255,255,255,.015)}
+.rmcard-img{height:44px}
+.rmcard:nth-child(1) .rmcard-img{background:linear-gradient(135deg,rgba(59,130,246,.25),rgba(96,165,250,.15))}
+.rmcard:nth-child(2) .rmcard-img{background:linear-gradient(135deg,rgba(34,197,94,.15),rgba(59,130,246,.2))}
+.rmcard:nth-child(3) .rmcard-img{background:linear-gradient(135deg,rgba(251,191,36,.15),rgba(239,68,68,.1))}
+.rmcard-bd{padding:6px}
+.rmcard-ln{height:4px;border-radius:2px;background:rgba(255,255,255,.05);margin-bottom:3px}.rmcard-ln:last-child{width:55%}
+.rmfoot{display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid rgba(255,255,255,.03)}
+.rmfoot-l{width:50px;height:5px;border-radius:3px;background:rgba(255,255,255,.05)}
+.rmfoot-links{display:flex;gap:5px}.rmfoot-links span{width:18px;height:4px;border-radius:2px;background:rgba(255,255,255,.03)}
+.result-done{text-align:center;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:#00FF88;opacity:0;transition:opacity .4s}.result-done.show{opacity:1}
+
+/* FEATURES */
+.fg{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;border-radius:16px;overflow:hidden;background:rgba(255,255,255,.03)}
+.f{padding:36px 28px;background:#1E293B;transition:all .3s;position:relative;overflow:hidden}
+.f:hover{background:#253449}
+.f::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#00FF88,transparent);opacity:0;transition:opacity .3s}.f:hover::after{opacity:.4}
+.f-ic{width:44px;height:44px;border-radius:12px;background:rgba(0,255,136,.05);border:1px solid rgba(0,255,136,.08);display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:20px;transition:all .3s}
+.f:hover .f-ic{background:rgba(0,255,136,.08);border-color:rgba(0,255,136,.15)}
+.f h4{font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px}
+.f p{font-size:13px;color:rgba(255,255,255,.25);line-height:1.65}
+
+/* GOOGLE MOCKUP */
+.goog{border-top:1px solid rgba(255,255,255,.04);overflow:hidden;position:relative}
+.goog-inner{max-width:600px;margin:0 auto}
+.goog-box{border-radius:16px;border:1px solid rgba(255,255,255,.06);background:#1E293B;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.goog-bar{height:44px;background:#1E293B;display:flex;align-items:center;padding:0 16px;gap:10px;border-bottom:1px solid rgba(255,255,255,.04)}
+.goog-bar-url{flex:1;height:28px;border-radius:14px;background:rgba(255,255,255,.04);display:flex;align-items:center;padding:0 14px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(255,255,255,.2)}
+.goog-bar-url .lock{color:#00FF88;margin-right:6px;font-size:10px}
+.goog-body{padding:24px 20px}
+.goog-search{display:flex;align-items:center;gap:10px;margin-bottom:20px;padding:10px 16px;border-radius:24px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.02)}
+.goog-search svg{flex-shrink:0;opacity:.3}
+.goog-search span{font-size:14px;color:rgba(255,255,255,.4)}
+.goog-count{font-size:11px;color:rgba(255,255,255,.15);margin-bottom:20px}
+.goog-result{padding:16px;border-radius:12px;border:1px solid rgba(0,255,136,.1);background:rgba(0,255,136,.02);opacity:0;transform:translateY(16px);transition:all .6s cubic-bezier(.22,1,.36,1)}
+.goog-result.show{opacity:1;transform:none}
+.goog-result-url{font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(0,255,136,.5);margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.goog-result-url::before{content:'';width:16px;height:16px;border-radius:4px;background:linear-gradient(135deg,#3B82F6,#60A5FA);flex-shrink:0}
+.goog-result h4{font-size:16px;font-weight:700;color:#7BA4FF;margin-bottom:4px}
+.goog-result p{font-size:13px;color:rgba(255,255,255,.3);line-height:1.5}
+.goog-result-badge{display:inline-flex;align-items:center;gap:4px;margin-top:8px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:#00FF88;padding:3px 10px;border-radius:4px;background:rgba(0,255,136,.06)}
+.goog-result-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:#00FF88}
+.goog-others{margin-top:16px}
+.goog-other{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.03)}
+.goog-other:last-child{border:none}
+.goog-other-url{font-size:10px;color:rgba(255,255,255,.12);margin-bottom:2px}
+.goog-other-title{font-size:13px;color:rgba(255,255,255,.15)}
+.goog-other-desc{font-size:11px;color:rgba(255,255,255,.08);margin-top:2px}
+.goog-arrow{position:absolute;right:-20px;top:50%;width:80px;text-align:center;opacity:0;transition:all .5s .3s}
+.goog-arrow.show{opacity:1;right:clamp(-10px,2vw,20px)}
+.goog-arrow-text{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#00FF88;writing-mode:vertical-rl;letter-spacing:.1em;text-transform:uppercase}
+
+/* BEFORE/AFTER SLIDER */
+.ba{border-top:1px solid rgba(255,255,255,.04);overflow:hidden}
+.ba-container{max-width:700px;margin:0 auto;position:relative;border-radius:16px;overflow:hidden;border:1px solid rgba(148,163,184,.08);background:#1E293B;box-shadow:0 20px 60px rgba(0,0,0,.3);user-select:none;-webkit-user-select:none;touch-action:none;min-height:360px}
+.ba-side{position:absolute;inset:0;overflow:hidden}
+.ba-before{z-index:1}
+.ba-after{z-index:2;clip-path:inset(0 0 0 50%)}
+.ba-content{width:700px;max-width:700px;min-height:360px;padding:40px 32px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.ba-before .ba-content{background:#1E293B}
+.ba-after .ba-content{background:#162032}
+.ba-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px;padding:4px 14px;border-radius:100px}
+.ba-before .ba-label{color:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.06)}
+.ba-after .ba-label{color:#00FF88;border:1px solid rgba(0,255,136,.15);background:rgba(0,255,136,.04)}
+.ba-before .ba-icon{font-size:48px;margin-bottom:16px;opacity:.3}
+.ba-after .ba-icon{font-size:48px;margin-bottom:16px}
+.ba-before h4{font-size:18px;font-weight:800;color:rgba(255,255,255,.2);text-transform:uppercase;margin-bottom:8px}
+.ba-after h4{font-size:18px;font-weight:800;color:#fff;text-transform:uppercase;margin-bottom:8px}
+.ba-before p{font-size:13px;color:rgba(255,255,255,.1);line-height:1.6;max-width:260px}
+.ba-after p{font-size:13px;color:rgba(255,255,255,.35);line-height:1.6;max-width:260px}
+.ba-before .ba-items{margin-top:16px}.ba-after .ba-items{margin-top:16px}
+.ba-item{display:flex;align-items:center;gap:6px;font-size:12px;margin-bottom:6px}
+.ba-before .ba-item{color:rgba(255,255,255,.1)}.ba-before .ba-item::before{content:'✕';color:rgba(255,107,107,.3);font-weight:700;font-size:10px}
+.ba-after .ba-item{color:rgba(255,255,255,.35)}.ba-after .ba-item::before{content:'✓';color:#00FF88;font-weight:700;font-size:10px}
+.ba-handle{position:absolute;top:0;bottom:0;width:4px;background:linear-gradient(180deg,#00FF88,#00CCFF);z-index:10;left:50%;transform:translateX(-50%);cursor:ew-resize}
+.ba-handle::after{content:'⟷';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#00FF88,#00CCFF);display:flex;align-items:center;justify-content:center;font-size:14px;color:#0F172A;font-weight:900;box-shadow:0 0 20px rgba(0,255,136,.3)}
+.ba-hint{text-align:center;margin-top:16px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(255,255,255,.15)}
+
+/* COMPARISON */
+.cmp{border-top:1px solid rgba(255,255,255,.04)}
+.cmp-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:800px;margin:0 auto}
+.cmp-card{border-radius:16px;padding:36px 32px;position:relative;overflow:hidden}
+.cmp-bad{border:1px solid rgba(255,255,255,.04);background:rgba(255,255,255,.015)}
+.cmp-good{border:1px solid rgba(0,255,136,.12);background:rgba(0,255,136,.02)}
+.cmp-good::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00FF88,#00CCFF)}
+.cmp-tag{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:20px;padding:4px 12px;border-radius:100px;display:inline-block}
+.cmp-bad .cmp-tag{color:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.06)}
+.cmp-good .cmp-tag{color:#00FF88;border:1px solid rgba(0,255,136,.15);background:rgba(0,255,136,.04)}
+.cmp-card h4{font-size:20px;font-weight:900;text-transform:uppercase;margin-bottom:20px}
+.cmp-bad h4{color:rgba(255,255,255,.3)}
+.cmp-good h4{color:#fff}
+.cmp-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:14px}
+.cmp-row:last-child{border:none}
+.cmp-row-label{color:rgba(255,255,255,.3)}
+.cmp-bad .cmp-row-val{color:rgba(255,255,255,.15);font-weight:700}
+.cmp-good .cmp-row-val{color:#00FF88;font-weight:700}
+.cmp-row-val.counter{font-family:'IBM Plex Mono',monospace;font-size:16px}
+.cmp-total{margin-top:20px;padding-top:16px;border-top:2px solid rgba(255,255,255,.04);display:flex;justify-content:space-between;align-items:baseline}
+.cmp-total-label{font-size:12px;color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:.08em}
+.cmp-bad .cmp-total-val{font-size:28px;font-weight:900;color:rgba(255,255,255,.15)}
+.cmp-good .cmp-total-val{font-size:28px;font-weight:900;color:#00FF88}
+.cmp-good .cmp-total{border-top-color:rgba(0,255,136,.1)}
+
+/* PRICING */
+.pricing{border-top:1px solid rgba(255,255,255,.04);text-align:center;position:relative;overflow:hidden}
+.pricing-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:700px;background:radial-gradient(ellipse,rgba(0,255,136,.05),transparent 55%);pointer-events:none}
+.pricing-glow2{position:absolute;top:20%;right:10%;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(0,204,255,.04),transparent 60%);pointer-events:none}
+.pricing-inner{max-width:1200px;margin:0 auto;position:relative;z-index:2}
+.pricing-hero{margin-bottom:56px}
+.pricing-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 24px;border-radius:100px;background:linear-gradient(135deg,rgba(0,255,136,.1),rgba(0,204,255,.06));border:1px solid rgba(0,255,136,.12);margin-bottom:24px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#00FF88;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.pricing-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:#00FF88;box-shadow:0 0 10px rgba(0,255,136,.5)}
+.pricing-amount{font-size:clamp(6rem,16vw,12rem);font-weight:900;line-height:.8;letter-spacing:-.06em;margin-bottom:8px;position:relative;display:inline-block}
+.pricing-amount .kr{font-size:.18em;font-weight:600;color:rgba(255,255,255,.2);vertical-align:super;letter-spacing:0;margin-left:4px}
+.pricing-amount .glow-text{position:absolute;inset:0;background:linear-gradient(135deg,#00FF88,#00CCFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:blur(40px);opacity:.15;pointer-events:none;z-index:-1}
+.pricing-period{font-size:18px;color:rgba(255,255,255,.2);font-weight:400;margin-bottom:4px}
+.pricing-zero{font-family:'IBM Plex Mono',monospace;font-size:13px;color:rgba(0,255,136,.35);margin-top:8px}
+
+.pricing-features{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;border-radius:16px;overflow:hidden;background:rgba(255,255,255,.03);margin-bottom:48px}
+.pf{padding:28px 24px;background:#1E293B;text-align:center;transition:all .3s;position:relative}
+.pf:hover{background:#253449}
+.pf-icon{font-size:24px;margin-bottom:12px}
+.pf-text{font-size:14px;font-weight:600;color:rgba(255,255,255,.5);line-height:1.4}
+.pf-sub{font-size:11px;color:rgba(255,255,255,.15);margin-top:6px;font-family:'IBM Plex Mono',monospace}
+
+.pricing-cta{display:flex;flex-direction:column;align-items:center;gap:16px}
+.pricing-btn{padding:22px 64px;border-radius:14px;background:linear-gradient(135deg,#00FF88,#00CCFF);color:#0F172A;font-size:18px;font-weight:900;border:none;cursor:pointer;text-transform:uppercase;letter-spacing:.08em;transition:all .3s;box-shadow:0 0 60px rgba(0,255,136,.15),0 8px 32px rgba(0,0,0,.2);display:inline-flex;align-items:center;gap:12px}
+.pricing-btn:hover{box-shadow:0 0 80px rgba(0,255,136,.25),0 12px 48px rgba(0,0,0,.2);transform:translateY(-3px)}
+.pricing-cancel{font-size:13px;color:rgba(255,255,255,.15);font-family:'IBM Plex Mono',monospace}
+
+@media(max-width:960px){.pricing-features{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.pricing-features{grid-template-columns:1fr}.pricing-amount{font-size:clamp(4rem,14vw,7rem)}.pricing-btn{padding:18px 40px;font-size:15px}}
+
+/* ORDER FORM */
+.order{border-top:1px solid rgba(255,255,255,.04);position:relative;overflow:hidden}
+.order-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:500px;background:radial-gradient(ellipse,rgba(0,255,136,.04),transparent 60%);pointer-events:none}
+.order-inner{max-width:560px;margin:0 auto;position:relative;z-index:2}
+.obr{width:100%;border-radius:14px;background:#1E293B;border:1px solid rgba(0,255,136,.1);overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.4),0 0 60px rgba(0,255,136,.03)}
+.obr-bar{height:42px;background:#1E293B;display:flex;align-items:center;padding:0 16px;gap:7px;border-bottom:1px solid rgba(255,255,255,.04)}
+.obr-bar-title{flex:1;margin-left:12px;display:flex;align-items:center;gap:8px}
+.obr-bar-title span{font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(255,255,255,.25)}
+.obr-bar-live{display:flex;align-items:center;gap:5px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:#00FF88}
+.obr-bar-live::before{content:'';width:5px;height:5px;border-radius:50%;background:#00FF88;box-shadow:0 0 8px rgba(0,255,136,.5);animation:pulse 1.5s ease-in-out infinite}
+.obr-body{padding:28px 24px}
+.obr-label{font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(0,255,136,.4);letter-spacing:.15em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:6px}
+.obr-label::before{content:'';width:5px;height:5px;border-radius:50%;background:#00FF88;box-shadow:0 0 6px rgba(0,255,136,.4);animation:pulse 1.5s ease-in-out infinite}
+.of-row{margin-bottom:14px}
+.of-lbl{font-size:11px;color:rgba(255,255,255,.3);margin-bottom:5px;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.of-input{width:100%;height:40px;border-radius:8px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);padding:0 14px;font-family:'Outfit',sans-serif;font-size:14px;color:#fff;outline:none;transition:all .2s}
+.of-input::placeholder{color:rgba(255,255,255,.12)}
+.of-input:focus{border-color:rgba(0,255,136,.3);box-shadow:0 0 0 3px rgba(0,255,136,.05)}
+.of-textarea{height:auto;min-height:100px;padding:12px 14px;resize:vertical}
+.of-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.of-select{width:100%;height:40px;border-radius:8px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);padding:0 14px;font-family:'Outfit',sans-serif;font-size:14px;color:#fff;outline:none;appearance:none;cursor:pointer;transition:all .2s;background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2300FF88' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.of-select:focus{border-color:rgba(0,255,136,.3)}
+.of-select option{background:#1E293B;color:#fff}
+.of-submit{width:100%;height:50px;border-radius:10px;background:linear-gradient(135deg,#00FF88,#00CCFF);color:#0F172A;font-family:'Outfit',sans-serif;font-size:15px;font-weight:900;border:none;cursor:pointer;text-transform:uppercase;letter-spacing:.08em;transition:all .3s;box-shadow:0 0 40px rgba(0,255,136,.1);margin-top:8px}
+.of-submit:hover{box-shadow:0 0 60px rgba(0,255,136,.25);transform:translateY(-2px)}
+.obr-foot{padding:12px 24px;border-top:1px solid rgba(255,255,255,.04);display:flex;align-items:center;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(255,255,255,.12)}
+.of-success{display:none;text-align:center;padding:48px 24px}
+.of-success.show{display:block}
+.of-success-icon{width:64px;height:64px;border-radius:50%;background:rgba(0,255,136,.08);border:2px solid rgba(0,255,136,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px}
+.of-success h3{font-size:22px;font-weight:900;text-transform:uppercase;margin-bottom:8px}
+.of-success p{font-size:15px;color:rgba(255,255,255,.3);line-height:1.7}
+.of-success .of-ref{margin-top:16px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:rgba(0,255,136,.4);padding:8px 16px;border-radius:8px;background:rgba(0,255,136,.04);border:1px solid rgba(0,255,136,.08);display:inline-block}
+@media(max-width:600px){.of-grid{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq{border-top:1px solid rgba(255,255,255,.04)}
+.faq-grid{max-width:760px;margin:0 auto}
+.faq-item{border-bottom:1px solid rgba(255,255,255,.04)}
+.faq-q{padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;cursor:pointer;transition:color .2s;font-size:16px;font-weight:700}
+.faq-q:hover{color:#00FF88}
+.faq-toggle{width:32px;height:32px;border-radius:50%;background:rgba(0,255,136,.06);border:1px solid rgba(0,255,136,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s;font-size:20px;color:rgba(0,255,136,.5);font-weight:300;line-height:1}
+.faq-item.open .faq-toggle{background:#00FF88;color:#0F172A;transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s ease}
+.faq-item.open .faq-a{max-height:400px;padding-bottom:22px}
+.faq-a p{font-size:15px;color:rgba(255,255,255,.3);line-height:1.75;max-width:620px}
+
+/* RING OSS */
+.ring{border-top:1px solid rgba(255,255,255,.04);text-align:center;position:relative;overflow:hidden}
+.ring-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:400px;background:radial-gradient(ellipse,rgba(0,255,136,.04),transparent 60%);pointer-events:none}
+.ring h2{font-size:clamp(1.8rem,4vw,3rem);font-weight:900;text-transform:uppercase;letter-spacing:-.03em;margin-bottom:12px;position:relative;z-index:2}
+.ring p{color:rgba(255,255,255,.25);font-size:16px;margin-bottom:28px;position:relative;z-index:2;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.7}
+.ring-phone{font-size:clamp(1.4rem,3vw,2.2rem);font-weight:900;margin-bottom:32px;position:relative;z-index:2}.ring-phone a{color:#00FF88;text-decoration:none}
+
+/* AI BOX */
+.ai-box-wrap{padding:0 clamp(20px,5vw,48px) clamp(60px,8vh,80px);border-top:1px solid rgba(255,255,255,.04)}
+.ai-box{max-width:1200px;margin:0 auto;border-radius:20px;padding:40px clamp(24px,4vw,48px);position:relative;overflow:hidden;border:1px solid rgba(0,255,136,.08);background:linear-gradient(135deg,rgba(0,255,136,.03),rgba(0,204,255,.015),rgba(139,92,246,.01))}
+.ai-box::before{content:'';position:absolute;top:0;left:40px;right:40px;height:1px;background:linear-gradient(90deg,transparent,rgba(0,255,136,.15),transparent)}
+.ai-box::after{content:'';position:absolute;top:-100px;right:-50px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(0,255,136,.04),transparent 60%);pointer-events:none}
+.ai-box-inner{position:relative;z-index:2;display:flex;align-items:flex-start;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.ai-box-text{flex:1;min-width:280px}
+.ai-tag{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:6px;background:rgba(0,255,136,.08);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#00FF88;margin-bottom:16px;font-weight:600}
+.ai-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:#00FF88;box-shadow:0 0 8px rgba(0,255,136,.5)}
+.ai-box-text h3{font-size:clamp(1.2rem,2.5vw,1.6rem);font-weight:800;margin-bottom:10px;text-transform:uppercase;letter-spacing:-.01em}
+.ai-box-text p{font-size:14px;color:rgba(255,255,255,.25);line-height:1.65;max-width:600px}
+.ai-links{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:20px}
+.ai-link{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:10px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.03em;transition:all .3s;text-decoration:none;cursor:pointer;font-weight:600}
+.ai-link.primary{background:linear-gradient(135deg,#00FF88,#00CCFF);color:#0F172A}
+.ai-link.primary:hover{box-shadow:0 4px 24px rgba(0,255,136,.2);transform:translateY(-1px)}
+.ai-link.outline{background:transparent;border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.3)}
+.ai-link.outline:hover{border-color:rgba(0,255,136,.2);color:#00FF88}
+.ai-box-visual{flex-shrink:0;display:flex;flex-direction:column;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(255,255,255,.12);padding:16px 20px;border-radius:12px;background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.04);min-width:200px}
+.ai-box-visual .av-line{display:flex;align-items:center;gap:8px}
+.ai-box-visual .av-dot{width:4px;height:4px;border-radius:50%;background:#00FF88;box-shadow:0 0 6px rgba(0,255,136,.4);flex-shrink:0}
+.ai-box-visual .av-label{color:rgba(255,255,255,.15)}
+.ai-box-visual .av-val{color:rgba(0,255,136,.4);margin-left:auto}
+
+@media(max-width:600px){.ai-box-inner{flex-direction:column}.ai-box-visual{width:100%}}
+
+/* FOOTER */
+.ft-kommune{border-top:1px solid rgba(255,255,255,.04);padding:32px clamp(20px,5vw,48px)}
+.ft-kommune-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:clamp(12px,2vw,28px);overflow-x:auto}
+.ft-kommune h4{font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;white-space:nowrap;margin-right:8px}
+.ft-kommune-cities{display:flex;gap:clamp(12px,2vw,24px);white-space:nowrap}
+.ft-kommune-cities a{font-size:13px;color:rgba(255,255,255,.25);text-decoration:none;transition:color .2s}
+.ft-kommune-cities a:hover{color:#00FF88}
+.ft-kommune-all{font-family:'IBM Plex Mono',monospace;font-size:12px;color:#00FF88;text-decoration:none;transition:opacity .2s}
+.ft-kommune-all:hover{opacity:.7}
+
+.footer{background:#0F172A;border-top:1px solid rgba(255,255,255,.06);padding:60px clamp(20px,5vw,48px) 0}
+.ft-inner{max-width:1200px;margin:0 auto}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
+.ft-brand{max-width:280px}
+.ft-brand-logo{font-size:20px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.ft-brand-logo .fm{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#00FF88,#00CCFF);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#0F172A}
+.ft-brand p{font-size:13px;color:rgba(255,255,255,.2);line-height:1.65}
+.ft-col h5{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.2);margin-bottom:16px}
+.ft-col a{display:flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,.25);text-decoration:none;margin-bottom:10px;transition:color .2s}
+.ft-col a:hover{color:rgba(255,255,255,.6)}
+.ft-col a svg{width:14px;height:14px;opacity:.4;flex-shrink:0}
+.ft-col .ft-mono{font-family:'IBM Plex Mono',monospace;font-size:12px}
+
+.ft-divider{height:1px;background:rgba(255,255,255,.04);margin-bottom:20px}
+.ft-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-bottom:28px}
+.ft-copy{font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(255,255,255,.08)}
+.ft-copy a{color:rgba(255,255,255,.15);text-decoration:none}
+.ft-copy a:hover{color:rgba(255,255,255,.3)}
+.ft-bottom-r{display:flex;gap:20px}
+.ft-bottom-r a{font-size:11px;color:rgba(255,255,255,.1);text-decoration:none;transition:color .2s}
+.ft-bottom-r a:hover{color:rgba(255,255,255,.3)}
+
+@media(max-width:960px){.ft-grid{grid-template-columns:1fr 1fr;gap:32px}.ft-brand{grid-column:span 2}}
+@media(max-width:600px){.ft-grid{grid-template-columns:1fr 1fr}.ft-brand{grid-column:span 2}.ft-bottom{flex-direction:column;text-align:center}.ft-bottom-r{justify-content:center}}
+
+[data-rv]{opacity:0;transform:translateY(24px);transition:all .6s cubic-bezier(.16,1,.3,1)}[data-rv].vis{opacity:1;transform:none}
+[data-rv="1"]{transition-delay:.06s}[data-rv="2"]{transition-delay:.12s}[data-rv="3"]{transition-delay:.18s}
+
+@media(max-width:960px){
+  .hero-inner{flex-direction:column}.hero-text{text-align:center;order:2}.hero-sub{margin:0 auto 36px}.hero-actions{justify-content:center}.hero-price{text-align:center}
+  .hbw{flex:none;width:100%;max-width:420px;order:1;margin-bottom:24px}
+  .fg{grid-template-columns:1fr}
+  .cmp-grid{grid-template-columns:1fr}
+  .demo-layout{grid-template-columns:1fr}.demo-text{order:1}.dbw{order:2}
+  .stats-inner{grid-template-columns:repeat(2,1fr)}.stat{border-bottom:1px solid rgba(255,255,255,.04)}
+  .nav-links{display:none}.mob-btn{display:block}
+}
+@media(max-width:600px){
+  .hero h1{font-size:clamp(2rem,9vw,3rem)}.hbw{max-width:100%}
+  .hmc-grid{grid-template-columns:1fr 1fr}.hmc:nth-child(3){display:none}
+  .rmcards{grid-template-columns:1fr 1fr}.rmcard:nth-child(3){display:none}
+  .form-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-logo"><span class="lm">ai</span>AINETTSIDE</div>
+  <div class="nav-links"><a href="#demo">SE DEMO</a><a href="#pricing">PRIS</a><a href="#faq">FAQ</a><a href="#ring">KONTAKT</a></div>
+  <button class="nav-cta" onclick="document.getElementById('bestill').scrollIntoView({behavior:'smooth'})">BESTILL NÅ</button>
+  <button class="mob-btn" aria-label="Meny"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+</nav>
+
+<!-- ═══ HERO (original med browser build-animasjon) ═══ -->
+<section class="hero">
+  <div class="hero-glow g1"></div><div class="hero-glow g2"></div><div class="hero-glow g3"></div><div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge"><span class="hero-badge-dot"></span><span>AI-DREVET · NORSK · 24T LEVERING</span></div>
+      <h1>DIN<br><span class="outline">NETTSIDE.</span><br><span class="grd">LAGET AV AI.</span></h1>
+      <p class="hero-sub">Du trenger ikke kunne noe om IT. <strong>Fortell oss om bedriften din</strong>, så lager vi en pen nettside for deg. Trenger du hjelp? <strong>Bare ring oss.</strong></p>
+      <div class="hero-actions"><button class="btn-g" onclick="document.getElementById('bestill').scrollIntoView({behavior:'smooth'})">BESTILL NÅ <span>→</span></button><button class="btn-o" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">SE DEMO</button></div>
+      <p class="hero-price"><strong>299 KR/MND</strong> · INGEN OPPSTART · KANSELLER NÅR SOM HELST</p>
+    </div>
+    <div class="hbw">
+      <div class="hbw-glow"></div>
+      <div class="hbr">
+        <div class="hbr-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><div class="hbr-url"><span class="tc" id="hUrl"></span></div></div>
+        <div class="hbr-body" id="hBody">
+          <div class="ac" id="hCur"><svg viewBox="0 0 24 24" fill="none"><path d="M5 3l14 8-6 2-4 6-4-16z" fill="#00FF88" stroke="#fff" stroke-width="1.2"/></svg></div>
+          <div class="he" data-h="1"><div class="hmn"><div class="hmn-logo"><div class="hmn-sq"></div><div class="hmn-t"></div></div><div class="hmn-links"><span></span><span></span><span></span></div><div class="hmn-cta"></div></div></div>
+          <div class="he" data-h="2"><div class="hmh"><div class="hmh1"></div><div class="hmh2"></div></div></div>
+          <div class="he" data-h="3"><div class="hms1"></div><div class="hms2"></div></div>
+          <div class="he" data-h="4"><div class="hmb"><div class="hmb-p"></div><div class="hmb-o"></div></div></div>
+          <div class="he" data-h="5"><div class="hmc-grid"><div class="hmc"><div class="hmc-img"></div><div class="hmc-bd"><div class="hmc-ln"></div><div class="hmc-ln"></div></div></div><div class="hmc"><div class="hmc-img"></div><div class="hmc-bd"><div class="hmc-ln"></div><div class="hmc-ln"></div></div></div><div class="hmc"><div class="hmc-img"></div><div class="hmc-bd"><div class="hmc-ln"></div><div class="hmc-ln"></div></div></div></div></div>
+          <div class="he" data-h="6"><div class="hmf"><div class="hmf-l"></div><div class="hmf-links"><span></span><span></span><span></span></div></div></div>
+          <div class="ai-st" id="hSt"><span id="hStT"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats"><div class="stats-inner">
+  <div class="stat"><div class="stat-v">299,-</div><div class="stat-l">PER MÅNED</div></div>
+  <div class="stat"><div class="stat-v">24T</div><div class="stat-l">LEVERINGSTID</div></div>
+  <div class="stat"><div class="stat-v">0,-</div><div class="stat-l">OPPSTART</div></div>
+  <div class="stat"><div class="stat-v"><svg width="36" height="36" viewBox="0 0 32 32" fill="none" style="display:inline-block;vertical-align:middle"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><path d="M8 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L17 13l5 2v3a2 2 0 0 1-2 2A14 14 0 0 1 6 6a2 2 0 0 1 2-2z" stroke="url(#ig)" stroke-width="1.8"/></svg></div><div class="stat-l">RING OSS</div></div>
+</div></div>
+
+<!-- FOR HVEM — HONEYCOMB -->
+<section class="sec border-t" id="bransjer">
+  <div class="sec-inner">
+    <div class="sec-label" data-rv style="text-align:center">18 BRANSJER</div>
+    <div class="sec-title" data-rv style="text-align:center">UANSETT HVA DU<br><span class="grd">DRIVER MED.</span></div>
+    <p class="sec-sub" data-rv style="text-align:center;margin:0 auto 48px">Rørlegger, frisør, kafé eller fotograf. Trenger du en enkel nettside? Vi fikser det.</p>
+    <div class="hex-wrap" data-rv>
+      <!-- Row 1: 5 -->
+      <div class="hex-row">
+        <div class="hex"><div class="hex-scene"><svg viewBox="0 0 108 120" fill="none"><defs><linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><path d="M30 90V60a18 18 0 0 1 36 0v30" stroke="url(#hg)" stroke-width="1" stroke-linecap="round" opacity=".3"/><path d="M24 60h60" stroke="url(#hg)" stroke-width="1" opacity=".2"/><circle cx="48" cy="48" r="5" stroke="url(#hg)" stroke-width=".8" opacity=".25"/></svg></div><div class="hex-icon"><svg viewBox="0 0 32 32" width="24" height="24" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><path d="M10 26V16a6 6 0 0 1 12 0v10" stroke="url(#ig)" stroke-width="1.8" stroke-linecap="round"/><path d="M7 16h18" stroke="url(#ig)" stroke-width="1.8" stroke-linecap="round"/><circle cx="16" cy="10" r="2.5" stroke="url(#ig)" stroke-width="1.8"/></svg></div><div class="hex-name">Rørlegger</div></div>
+        <div class="hex"><div class="hex-scene"><svg viewBox="0 0 108 120" fill="none"><defs><linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><path d="M58 20L42 60h24L48 100" stroke="url(#hg)" stroke-width="1.2" opacity=".25" stroke-linecap="round"/><circle cx="35" cy="75" r="2" fill="#00FF88" opacity=".08"/><circle cx="72" cy="40" r="1.5" fill="#00CCFF" opacity=".06"/></svg></div><div class="hex-icon"><svg viewBox="0 0 32 32" width="24" height="24" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><path d="M18 4L12 16h8l-6 12" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="hex-name">Elektriker</div></div>
+        <div class="hex"><div class="hex-scene"><svg viewBox="0 0 108 120" fill="none"><defs><linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><path d="M25 95l30-30M65 55l15-15" stroke="url(#hg)" stroke-width="1" opacity=".2" stroke-linecap="round"/><rect x="60" y="38" width="16" height="10" rx="2" transform="rotate(-45 60 38)" stroke="url(#hg)" stroke-width=".8" opacity=".15"/></svg></div><div class="hex-icon"><svg viewBox="0 0 32 32" width="24" height="24" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><path d="M6 26l10-10M20 12l6-6" stroke="url(#ig)" stroke-width="1.8" stroke-linecap="round"/><rect x="18" y="7" width="7" height="5" rx="1" transform="rotate(-45 18 7)" stroke="url(#ig)" stroke-width="1.8"/></svg></div><div class="hex-name">Snekker</div></div>
+        <div class="hex"><div class="hex-scene"><svg viewBox="0 0 108 120" fill="none"><defs><linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><rect x="24" y="30" width="40" height="28" rx="4" stroke="url(#hg)" stroke-width=".8" opacity=".2"/><path d="M34 58v16a4 4 0 0 0 4 4h0a4 4 0 0 0 4-4V58" stroke="url(#hg)" stroke-width=".8" opacity=".15"/><path d="M40 78v14" stroke="url(#hg)" stroke-width=".8" opacity=".1" stroke-linecap="round"/></svg></div><div class="hex-icon"><svg viewBox="0 0 32 32" width="24" height="24" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><rect x="6" y="4" width="16" height="10" rx="2" stroke="url(#ig)" stroke-width="1.8"/><path d="M10 14v6a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2v-6" stroke="url(#ig)" stroke-width="1.8"/><path d="M13 22v6" stroke="url(#ig)" stroke-width="1.8" stroke-linecap="round"/></svg></div><div class="hex-name">Maler</div></div>
+        <div class="hex"><div class="hex-scene"><svg viewBox="0 0 108 120" fill="none"><defs><linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><circle cx="54" cy="45" r="16" stroke="url(#hg)" stroke-width=".8" opacity=".2"/><path d="M38 58c-4 6-6 14-6 22h44c0-8-2-16-6-22" stroke="url(#hg)" stroke-width=".8" opacity=".15" stroke-linecap="round"/></svg></div><div class="hex-icon"><svg viewBox="0 0 32 32" width="24" height="24" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><circle cx="16" cy="10" r="6" stroke="url(#ig)" stroke-width="1.8"/><path d="M10 14c-2 3-3 7-3 10h18c0-3-1-7-3-10" stroke="url(#ig)" stroke-width="1.8" stroke-linecap="round"/></svg></div><div class="hex-name">Frisør</div></div>
+      </div>
+      <!-- Row 2: 4 offset -->
+      <div class="hex-row offset">
+        <div class="hex"><div class="hex-scene"><svg viewBox="0 0 108 120" fill="none"><defs><linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><ellipse cx="54" cy="65" rx="30" ry="8" stroke="url(#hg)" stroke-width=".8" opacity=".2"/><circle cx="54" cy="42" r="10" stroke="url(#hg)" stroke-width=".8" opacity=".2"/></svg></div><div class="hex-icon"><svg viewBox="0 0 32 32" width="24" height="24" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><ellipse cx="16" cy="18" rx="10" ry="4" stroke="url(#ig)" stroke-width="1.8"/><circle cx="16" cy="9" r="4" stroke="url(#ig)" stroke-width="1.8"/></svg></div><div class="hex-name">Massør</div></div>
+        <div class="hex"><div class="hex-scene"><svg viewBox="0 0 108 120" fill="none"><defs><linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><path d="M34 30c0 22 6 34 18 46 12-12 18-24 18-46" stroke="url(#hg)" stroke-width=".8" opacity=".2" stroke-linecap="round"/><path d="M34 52h36" stroke="url(#hg)" stroke-width=".6" opacity=".1"/><circle cx="44" cy="42" r="2" fill="#00FF88" opacity=".08"/><circle cx="64" cy="42" r="2" fill="#00FF88" opacity=".08"/></svg></div><div class="hex-icon"><svg viewBox="0 0 32 32" width="24" height="24" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><path d="M10 8c0 8 2 12 6 16 4-4 6-8 6-16" stroke="url(#ig)" stroke-width="1.8" stroke-linecap="round"/><circle cx="13" cy="11" r="1.2" fill="#00FF88"/><circle cx="19" cy="11" r="1.2" fill="#00FF88"/></svg></div><div class="hex-name">Fotpleier</div></div>
+        <div class="hex"><div class="hex-scene"><svg viewBox="0 0 108 120" fill="none"><defs><linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><path d="M54 20v28" stroke="url(#hg)" stroke-width=".8" opacity=".15" stroke-linecap="round"/><path d="M30 48h48l-6 42H36L30 48z" stroke="url(#hg)" stroke-width=".8" opacity=".2" stroke-linejoin="round"/><path d="M40 58v18M54 58v18M68 58v18" stroke="url(#hg)" stroke-width=".6" opacity=".08" stroke-linecap="round"/></svg></div><div class="hex-icon"><svg viewBox="0 0 32 32" width="24" height="24" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><path d="M16 4v10" stroke="url(#ig)" stroke-width="1.8" stroke-linecap="round"/><path d="M8 14h16l-2 14H10L8 14z" stroke="url(#ig)" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="hex-name">Rengjøring</div></div>
+        <div class="hex"><div class="hex-scene"><svg viewBox="0 0 108 120" fill="none"><defs><linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><path d="M28 45h40v22a14 14 0 0 1-14 14H42a14 14 0 0 1-14-14V45z" stroke="url(#hg)" stroke-width=".8" opacity=".2"/><path d="M68 50h6a8 8 0 0 1 0 16h-6" stroke="url(#hg)" stroke-width=".8" opacity=".15"/><path d="M38 36c0-5 5-7 5-12M48 34c0-5 5-7 5-12M58 36c0-5 5-7 5-12" stroke="url(#hg)" stroke-width=".6" opacity=".1" stroke-linecap="round"/></svg></div><div class="hex-icon"><svg viewBox="0 0 32 32" width="24" height="24" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><path d="M6 12h16v8a6 6 0 0 1-6 6h-4a6 6 0 0 1-6-6v-8z" stroke="url(#ig)" stroke-width="1.8"/><path d="M22 14h2a3 3 0 0 1 0 6h-2" stroke="url(#ig)" stroke-width="1.8"/></svg></div><div class="hex-name">Kafé</div></div>
+      </div>
+      <!-- Row 3: 5 -->
+      <div class="hex-row offset">
+        <div class="hex"><div class="hex-scene"><svg viewBox="0 0 108 120" fill="none"><defs><linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><path d="M34 20v24c0 5 5 10 12 10v32" stroke="url(#hg)" stroke-width=".8" opacity=".2" stroke-linecap="round"/><path d="M58 20v24c0 5-5 10-12 10" stroke="url(#hg)" stroke-width=".8" opacity=".15" stroke-linecap="round"/><path d="M74 20c0 10-2 22-8 28v38" stroke="url(#hg)" stroke-width=".8" opacity=".12" stroke-linecap="round"/></svg></div><div class="hex-icon"><svg viewBox="0 0 32 32" width="24" height="24" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><path d="M10 4v8c0 2 2 4 4 4v12" stroke="url(#ig)" stroke-width="1.8" stroke-linecap="round"/><path d="M18 4v8c0 2-2 4-4 4" stroke="url(#ig)" stroke-width="1.8" stroke-linecap="round"/><path d="M24 4c0 4-1 8-3 10v14" stroke="url(#ig)" stroke-width="1.8" stroke-linecap="round"/></svg></div><div class="hex-name">Restaurant</div></div>
+        <div class="hex"><div class="hex-scene"><svg viewBox="0 0 108 120" fill="none"><defs><linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><path d="M14 58h16v-14h16v-10h12v10h16v14h16" stroke="url(#hg)" stroke-width=".8" opacity=".2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 58v8h16v-8M78 58v8h16v-8" stroke="url(#hg)" stroke-width=".8" opacity=".12" stroke-linejoin="round"/></svg></div><div class="hex-icon"><svg viewBox="0 0 32 32" width="24" height="24" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><path d="M4 16h5v-5h5v-4h4v4h5v5h5" stroke="url(#ig)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 16v3h5v-3M23 16v3h5v-3" stroke="url(#ig)" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="hex-name">PT / Trener</div></div>
+        <div class="hex"><div class="hex-scene"><svg viewBox="0 0 108 120" fill="none"><defs><linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><rect x="22" y="38" width="56" height="38" rx="6" stroke="url(#hg)" stroke-width=".8" opacity=".2"/><circle cx="50" cy="57" r="12" stroke="url(#hg)" stroke-width=".8" opacity=".2"/><circle cx="50" cy="57" r="5" stroke="url(#hg)" stroke-width=".6" opacity=".1"/><path d="M38 38l6-12h20l6 12" stroke="url(#hg)" stroke-width=".8" opacity=".15" stroke-linejoin="round"/></svg></div><div class="hex-icon"><svg viewBox="0 0 32 32" width="24" height="24" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><rect x="4" y="10" width="24" height="16" rx="3" stroke="url(#ig)" stroke-width="1.8"/><circle cx="16" cy="18" r="5" stroke="url(#ig)" stroke-width="1.8"/><path d="M11 10l2-4h6l2 4" stroke="url(#ig)" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="hex-name">Fotograf</div></div>
+        <div class="hex"><div class="hex-scene"><svg viewBox="0 0 108 120" fill="none"><defs><linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><circle cx="42" cy="48" r="12" stroke="url(#hg)" stroke-width=".8" opacity=".2"/><path d="M54 48c8 0 16 5 18 12v10a4 4 0 0 1-4 4H34a4 4 0 0 1-4-4v-3" stroke="url(#hg)" stroke-width=".8" opacity=".15" stroke-linecap="round"/><circle cx="38" cy="46" r="2" fill="#00FF88" opacity=".06"/><circle cx="46" cy="46" r="2" fill="#00FF88" opacity=".06"/><path d="M32 38l-5-8M52 38l5-8" stroke="url(#hg)" stroke-width=".6" opacity=".12" stroke-linecap="round"/></svg></div><div class="hex-icon"><svg viewBox="0 0 32 32" width="24" height="24" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><circle cx="12" cy="13" r="5" stroke="url(#ig)" stroke-width="1.8"/><path d="M17 13c3 0 6 2 7 5v4a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-1" stroke="url(#ig)" stroke-width="1.8" stroke-linecap="round"/><circle cx="10" cy="12" r="1" fill="#00FF88"/><circle cx="14" cy="12" r="1" fill="#00FF88"/></svg></div><div class="hex-name">Hundefrisør</div></div>
+        <div class="hex"><div class="hex-scene"><svg viewBox="0 0 108 120" fill="none"><defs><linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><circle cx="54" cy="45" r="8" stroke="url(#hg)" stroke-width=".8" opacity=".2"/><circle cx="42" cy="36" r="6" stroke="url(#hg)" stroke-width=".6" opacity=".1"/><circle cx="66" cy="36" r="6" stroke="url(#hg)" stroke-width=".6" opacity=".1"/><circle cx="42" cy="54" r="6" stroke="url(#hg)" stroke-width=".6" opacity=".1"/><circle cx="66" cy="54" r="6" stroke="url(#hg)" stroke-width=".6" opacity=".1"/><path d="M54 53v36" stroke="url(#hg)" stroke-width=".8" opacity=".15" stroke-linecap="round"/></svg></div><div class="hex-icon"><svg viewBox="0 0 32 32" width="24" height="24" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><circle cx="16" cy="12" r="3" stroke="url(#ig)" stroke-width="1.8"/><circle cx="12" cy="9" r="2.5" stroke="url(#ig)" stroke-width="1.2" opacity=".4"/><circle cx="20" cy="9" r="2.5" stroke="url(#ig)" stroke-width="1.2" opacity=".4"/><path d="M16 15v13" stroke="url(#ig)" stroke-width="1.8" stroke-linecap="round"/></svg></div><div class="hex-name">Blomster</div></div>
+      </div>
+      <!-- Row 4: 4 offset -->
+      <div class="hex-row offset">
+        <div class="hex"><div class="hex-scene"><svg viewBox="0 0 108 120" fill="none"><defs><linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><rect x="18" y="48" width="60" height="24" rx="6" stroke="url(#hg)" stroke-width=".8" opacity=".2"/><path d="M30 48l8-16h30l8 16" stroke="url(#hg)" stroke-width=".8" opacity=".15" stroke-linejoin="round"/><circle cx="36" cy="72" r="6" stroke="url(#hg)" stroke-width=".8" opacity=".2"/><circle cx="70" cy="72" r="6" stroke="url(#hg)" stroke-width=".8" opacity=".2"/></svg></div><div class="hex-icon"><svg viewBox="0 0 32 32" width="24" height="24" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><rect x="4" y="14" width="24" height="10" rx="3" stroke="url(#ig)" stroke-width="1.8"/><path d="M8 14l3-6h10l3 6" stroke="url(#ig)" stroke-width="1.8" stroke-linejoin="round"/><circle cx="10" cy="24" r="2.5" stroke="url(#ig)" stroke-width="1.8"/><circle cx="22" cy="24" r="2.5" stroke="url(#ig)" stroke-width="1.8"/></svg></div><div class="hex-name">Bilverksted</div></div>
+        <div class="hex"><div class="hex-scene"><svg viewBox="0 0 108 120" fill="none"><defs><linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><rect x="22" y="28" width="52" height="38" rx="4" stroke="url(#hg)" stroke-width=".8" opacity=".2"/><path d="M48 28v38M22 47h52" stroke="url(#hg)" stroke-width=".5" opacity=".08"/><path d="M42 74l-10 12M56 74l10 12M48 66v22" stroke="url(#hg)" stroke-width=".8" opacity=".15" stroke-linecap="round"/></svg></div><div class="hex-icon"><svg viewBox="0 0 32 32" width="24" height="24" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><rect x="6" y="4" width="20" height="16" rx="2" stroke="url(#ig)" stroke-width="1.8"/><path d="M14 24l-4 4M18 24l4 4M16 20v8" stroke="url(#ig)" stroke-width="1.8" stroke-linecap="round"/></svg></div><div class="hex-name">Vinduspusser</div></div>
+        <div class="hex"><div class="hex-scene"><svg viewBox="0 0 108 120" fill="none"><defs><linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><path d="M38 90V48l16-18 16 18v42" stroke="url(#hg)" stroke-width=".8" opacity=".2" stroke-linejoin="round"/><path d="M26 90h56" stroke="url(#hg)" stroke-width=".8" opacity=".15" stroke-linecap="round"/><rect x="46" y="62" width="10" height="14" rx="2" stroke="url(#hg)" stroke-width=".6" opacity=".12"/></svg></div><div class="hex-icon"><svg viewBox="0 0 32 32" width="24" height="24" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><path d="M12 28V14l4-6 4 6v14" stroke="url(#ig)" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 28h16" stroke="url(#ig)" stroke-width="1.8" stroke-linecap="round"/><rect x="14" y="18" width="4" height="5" rx="1" stroke="url(#ig)" stroke-width="1.5"/></svg></div><div class="hex-name">Vaktmester</div></div>
+        <div class="hex"><div class="hex-scene"><svg viewBox="0 0 108 120" fill="none"><defs><linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><path d="M54 20v38" stroke="url(#hg)" stroke-width=".8" opacity=".2" stroke-linecap="round"/><path d="M54 58c0 8-12 16-12 28h24c0-12-12-20-12-28z" stroke="url(#hg)" stroke-width=".8" opacity=".15"/><circle cx="54" cy="20" r="4" fill="#00FF88" opacity=".06"/></svg></div><div class="hex-icon"><svg viewBox="0 0 32 32" width="24" height="24" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><path d="M16 4v14" stroke="url(#ig)" stroke-width="1.8" stroke-linecap="round"/><path d="M16 18c0 3-4 6-4 10h8c0-4-4-7-4-10z" stroke="url(#ig)" stroke-width="1.8"/><circle cx="16" cy="4" r="1.5" fill="#00FF88"/></svg></div><div class="hex-name">Systue</div></div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:32px;font-size:14px;color:rgba(148,163,184,.25)" data-rv>Finner du ikke din bransje? <span style="color:#00FF88">Vi lager nettsider for alle.</span></p>
+  </div>
+</section>
+
+<!-- ═══ DEMO: RØRLEGGER OLE ═══ -->
+<section class="sec demo" id="demo">
+  <div class="demo-glow"></div>
+  <div class="demo-inner">
+    <div class="sec-label" data-rv>SE DET I AKSJON</div>
+    <div class="sec-title" data-rv>RØRLEGGER OLE<br>BESTILLER <span class="grd">NETTSIDE.</span></div>
+    <p class="sec-sub" data-rv>Ole driver et rørleggerfirma i Drammen. Han har null peiling på nettsider, men vil bli funnet på Google. Slik gjør han det:</p>
+    <div class="demo-layout">
+      <div class="demo-text" data-rv>
+        <div class="scenario"><h4><svg width="16" height="16" viewBox="0 0 32 32" fill="none" style="display:inline-block;vertical-align:middle;margin-right:6px"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><path d="M10 26V16a6 6 0 0 1 12 0v10" stroke="url(#ig)" stroke-width="1.8" stroke-linecap="round"/><path d="M7 16h18" stroke="url(#ig)" stroke-width="1.8" stroke-linecap="round"/></svg>OLES SITUASJON</h4><p>Ole Hansen har drevet Hansen Rør & VVS i 15 år. Han får kunder gjennom jungeltelegrafen, men taper jobber til konkurrenter som dukker opp på Google. Han vil ha en nettside, men vet ikke hvor han skal begynne.</p></div>
+        <h3>Hva Ole fyller inn:</h3>
+        <div class="demo-step"><div class="demo-step-num">1</div><div><h5>Navn og bedrift</h5><p>Ole Hansen — Hansen Rør & VVS</p></div></div>
+        <div class="demo-step"><div class="demo-step-num">2</div><div><h5>Hva han gjør</h5><p>Rørlegger i Drammen. Nybygg, renovering, service og akutt.</p></div></div>
+        <div class="demo-step"><div class="demo-step-num">3</div><div><h5>Kontaktinfo</h5><p>Telefon og e-post. Så kundene kan nå ham.</p></div></div>
+        <div class="demo-step"><div class="demo-step-num">4</div><div><h5>Ferdig!</h5><p>Vi lager resten. Ole trenger ikke gjøre noe mer.</p></div></div>
+        <p style="margin-top:20px;font-size:14px;color:rgba(255,255,255,.2)">Neste dag har Ole en ferdig nettside. Trenger han å endre noe? Han ringer oss.</p>
+      </div>
+      <div class="dbw" data-rv>
+        <div class="dbr">
+          <div class="dbr-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><div class="dbr-url"><span class="tc" id="dUrl"></span></div></div>
+          <div class="phase active" id="ph1">
+            <div class="phase-label">BESTILLINGSSKJEMA</div>
+            <div class="form-grid"><div class="form-row"><div class="form-lbl">Navn</div><div class="form-val"><span class="typed" id="f-name"></span></div></div><div class="form-row"><div class="form-lbl">Bedrift</div><div class="form-val"><span class="typed" id="f-company"></span></div></div></div>
+            <div class="form-row"><div class="form-lbl">Bransje</div><div class="form-val"><span class="typed" id="f-branch"></span></div></div>
+            <div class="form-row"><div class="form-lbl">Sted</div><div class="form-val"><span class="typed" id="f-sted"></span></div></div>
+            <div class="form-row"><div class="form-lbl">Telefon</div><div class="form-val"><span class="typed" id="f-phone"></span></div></div>
+            <div class="form-row"><div class="form-lbl">Beskriv hva du gjør</div><div class="form-val form-textarea"><span class="typed" id="f-desc"></span></div></div>
+            <div class="form-btn" id="fBtn">SEND BESTILLING →</div>
+          </div>
+          <div class="phase" id="ph2">
+            <div class="phase-label">AI BYGGER NETTSIDEN</div>
+            <div class="build-status"><div class="build-spinner"></div><h4>BYGGER NETTSIDE...</h4><p>hansenror.no</p><div class="build-progress"><div class="build-bar"><div class="build-bar-fill" id="bFill"></div></div><div class="build-log" id="bLog"><div>→ Oppretter navigasjon...</div><div>→ Genererer overskrift og tekst...</div><div>→ Legger til tjenester...</div><div>→ Setter opp kontaktinfo...</div><div>→ Optimaliserer for mobil...</div><div>→ Legger til SEO...</div><div class="ok">✓ Nettside ferdig!</div></div></div></div>
+          </div>
+          <div class="phase" id="ph3">
+            <div class="phase-label">FERDIG — HANSENROR.NO</div>
+            <div class="re" data-r="1"><div class="rmn"><div class="rmn-logo"><div class="rmn-sq"></div><div class="rmn-t"></div></div><div class="rmn-links"><span></span><span></span><span></span></div><div class="rmn-cta"></div></div></div>
+            <div class="re" data-r="2"><div class="rmh1"></div><div class="rmh2"></div></div>
+            <div class="re" data-r="3"><div class="rmsub"></div><div class="rmsub2"></div></div>
+            <div class="re" data-r="4"><div class="rmbtn-row"><div class="rmbtn-p"></div><div class="rmbtn-o"></div></div></div>
+            <div class="re" data-r="5"><div class="rmcards"><div class="rmcard"><div class="rmcard-img"></div><div class="rmcard-bd"><div class="rmcard-ln"></div><div class="rmcard-ln"></div></div></div><div class="rmcard"><div class="rmcard-img"></div><div class="rmcard-bd"><div class="rmcard-ln"></div><div class="rmcard-ln"></div></div></div><div class="rmcard"><div class="rmcard-img"></div><div class="rmcard-bd"><div class="rmcard-ln"></div><div class="rmcard-ln"></div></div></div></div></div>
+            <div class="re" data-r="6"><div class="rmfoot"><div class="rmfoot-l"></div><div class="rmfoot-links"><span></span><span></span><span></span></div></div></div>
+            <div class="result-done" id="rDone">✓ KLAR — HANSENROR.NO ER LIVE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="sec border-t" id="features">
+  <div class="sec-inner">
+    <div class="sec-label" data-rv>HVA DU FÅR</div>
+    <div class="sec-title" data-rv>ALT INKLUDERT.<br>INGEN OVERRASKELSER.</div>
+    <p class="sec-sub" data-rv>Du trenger ikke forstå noe av dette. Vi fikser alt sammen.</p>
+    <div class="fg">
+      <div class="f" data-rv="1"><div class="f-ic"><svg width="22" height="22" viewBox="0 0 32 32" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><circle cx="16" cy="16" r="11" stroke="url(#ig)" stroke-width="1.8"/><path d="M16 9v7l5 3" stroke="url(#ig)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4>FERDIG PÅ 24T</h4><p>Fortell oss om bedriften din. Neste dag har du en ferdig nettside.</p></div>
+      <div class="f" data-rv="2"><div class="f-ic"><svg width="22" height="22" viewBox="0 0 32 32" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><rect x="8" y="4" width="16" height="24" rx="3" stroke="url(#ig)" stroke-width="1.8"/><circle cx="16" cy="26" r="1" fill="#00FF88"/></svg></div><h4>FUNKER PÅ MOBIL</h4><p>Ser bra ut på telefon, nettbrett og PC. Uten at du gjør noe.</p></div>
+      <div class="f" data-rv="3"><div class="f-ic"><svg width="22" height="22" viewBox="0 0 32 32" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><circle cx="14" cy="14" r="8" stroke="url(#ig)" stroke-width="1.8"/><path d="M20 20l8 8" stroke="url(#ig)" stroke-width="2" stroke-linecap="round"/></svg></div><h4>FOLK FINNER DEG</h4><p>Vi gjør det lettere for kunder å finne deg på Google.</p></div>
+      <div class="f" data-rv="1"><div class="f-ic"><svg width="22" height="22" viewBox="0 0 32 32" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><path d="M8 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L17 13l5 2v3a2 2 0 0 1-2 2A14 14 0 0 1 6 6a2 2 0 0 1 2-2z" stroke="url(#ig)" stroke-width="1.8"/></svg></div><h4>RING OSS</h4><p>Trenger du hjelp? Ring oss. Vi snakker norsk og svarer telefonen.</p></div>
+      <div class="f" data-rv="2"><div class="f-ic"><svg width="22" height="22" viewBox="0 0 32 32" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><path d="M22 6l4 4-14 14H8v-4L22 6z" stroke="url(#ig)" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 28h16" stroke="url(#ig)" stroke-width="1.8" stroke-linecap="round"/></svg></div><h4>VI ENDRER FOR DEG</h4><p>Ny telefonnummer? Nye priser? Send melding, så fikser vi det.</p></div>
+      <div class="f" data-rv="3"><div class="f-ic"><svg width="22" height="22" viewBox="0 0 32 32" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><rect x="8" y="14" width="16" height="12" rx="2" stroke="url(#ig)" stroke-width="1.8"/><path d="M12 14v-4a4 4 0 0 1 8 0v4" stroke="url(#ig)" stroke-width="1.8"/><circle cx="16" cy="20" r="1.5" fill="#00FF88"/></svg></div><h4>TRYGT & SIKKERT</h4><p>Hengelåsen i nettleseren er inkludert. Kundene dine er trygge.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GOOGLE MOCKUP ═══ -->
+<section class="sec goog" id="google">
+  <div class="sec-inner">
+    <div class="sec-label" data-rv style="text-align:center">SLIK SER DET UT</div>
+    <div class="sec-title" data-rv style="text-align:center">DIN BEDRIFT<br><span class="grd">SYNLIG PÅ GOOGLE.</span></div>
+    <p class="sec-sub" data-rv style="text-align:center;margin:0 auto 48px">Når noen søker etter det du tilbyr, dukker du opp. Så enkelt.</p>
+    <div class="goog-inner" data-rv>
+      <div class="goog-box" id="googBox">
+        <div class="goog-bar">
+          <div style="display:flex;gap:6px"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+          <div class="goog-bar-url"><span class="lock"><svg width="10" height="10" viewBox="0 0 32 32" fill="none" style="display:inline-block;vertical-align:middle"><rect x="8" y="14" width="16" height="12" rx="2" stroke="#00FF88" stroke-width="2"/><path d="M12 14v-4a4 4 0 0 1 8 0v4" stroke="#00FF88" stroke-width="2"/></svg></span>google.com</div>
+        </div>
+        <div class="goog-body">
+          <div class="goog-search">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <span id="googQuery"></span>
+          </div>
+          <div class="goog-count" id="googCount"></div>
+          <div class="goog-result" id="googResult">
+            <div class="goog-result-url">hansenror.no</div>
+            <h4>Hansen Rør & VVS — Rørlegger i Drammen</h4>
+            <p>Profesjonell rørlegger med 15 års erfaring. Nybygg, renovering, service og akutt-oppdrag i Drammen og omegn. Ring oss i dag.</p>
+            <div class="goog-result-badge">DIN NETTSIDE</div>
+          </div>
+          <div class="goog-others" id="googOthers">
+            <div class="goog-other"><div class="goog-other-url">gfrørlegger.no</div><div class="goog-other-title">GF Rørlegger AS — Drammen</div><div class="goog-other-desc">Vi tilbyr rørleggertjenester i Drammen...</div></div>
+            <div class="goog-other"><div class="goog-other-url">mittanbud.no › rørlegger</div><div class="goog-other-title">Finn rørlegger i Drammen | Mittanbud</div><div class="goog-other-desc">Sammenlign tilbud fra rørleggere...</div></div>
+            <div class="goog-other"><div class="goog-other-url">gulsjekk.no</div><div class="goog-other-title">Rørleggere i Drammen – Oversikt</div><div class="goog-other-desc">Se alle registrerte rørleggere...</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BEFORE / AFTER SLIDER ═══ -->
+<section class="sec ba" id="beforeafter">
+  <div class="sec-inner">
+    <div class="sec-label" data-rv style="text-align:center">FØR OG ETTER</div>
+    <div class="sec-title" data-rv style="text-align:center">DRA SLIDEREN.<br><span class="grd">SE FORSKJELLEN.</span></div>
+    <p class="sec-sub" data-rv style="text-align:center;margin:0 auto 48px">Slik ser det ut for kundene dine — med og uten nettside.</p>
+    <div class="ba-container" id="baContainer" data-rv>
+      <div class="ba-side ba-before">
+        <div class="ba-content">
+          <div class="ba-label">UTEN NETTSIDE</div>
+          <div class="ba-icon"><svg width="48" height="48" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/><path d="M10 20h12" stroke="rgba(255,255,255,.12)" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="13" r="1.5" fill="rgba(255,255,255,.1)"/><circle cx="20" cy="13" r="1.5" fill="rgba(255,255,255,.1)"/></svg></div>
+          <h4>USYNLIG PÅ NETT</h4>
+          <p>Kundene søker, men finner deg ikke. De ringer konkurrenten i stedet.</p>
+          <div class="ba-items">
+            <div class="ba-item">Finnes ikke på Google</div>
+            <div class="ba-item">Ingen kontaktinfo tilgjengelig</div>
+            <div class="ba-item">Ser uprofesjonell ut</div>
+            <div class="ba-item">Taper kunder hver dag</div>
+          </div>
+        </div>
+      </div>
+      <div class="ba-side ba-after" id="baAfter">
+        <div class="ba-content">
+          <div class="ba-label">MED AINETTSIDE</div>
+          <div class="ba-icon"><svg width="48" height="48" viewBox="0 0 32 32" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><path d="M16 4c-4 6-6 12-6 18h12c0-6-2-12-6-18z" stroke="url(#ig)" stroke-width="1.8" stroke-linejoin="round"/><circle cx="16" cy="16" r="2" fill="#00FF88"/><path d="M10 22c-3 0-4 2-4 4h4M22 22c3 0 4 2 4 4h-4" stroke="url(#ig)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <h4>SYNLIG PÅ GOOGLE</h4>
+          <p>Kundene finner deg, ser hva du tilbyr, og ringer deg direkte.</p>
+          <div class="ba-items">
+            <div class="ba-item">Dukker opp på Google</div>
+            <div class="ba-item">Telefon og e-post synlig</div>
+            <div class="ba-item">Profesjonelt førsteinntrykk</div>
+            <div class="ba-item">Kunder finner deg 24/7</div>
+          </div>
+        </div>
+      </div>
+      <div class="ba-handle" id="baHandle"></div>
+    </div>
+    <div class="ba-hint">← DRA FOR Å SAMMENLIGNE →</div>
+  </div>
+</section>
+
+<!-- ═══ COMPARISON: BYRÅ VS AINETTSIDE ═══ -->
+<section class="sec cmp" id="compare">
+  <div class="sec-inner">
+    <div class="sec-label" data-rv style="text-align:center">SAMMENLIGNING</div>
+    <div class="sec-title" data-rv style="text-align:center">NETTBYRÅ VS<br><span class="grd">AINETTSIDE.</span></div>
+    <p class="sec-sub" data-rv style="text-align:center;margin:0 auto 48px">Du trenger ikke bruke 50 000 kroner på en nettside.</p>
+    <div class="cmp-grid">
+      <div class="cmp-card cmp-bad" data-rv>
+        <div class="cmp-tag">TYPISK NETTBYRÅ</div>
+        <h4>DEN DYRE VEIEN</h4>
+        <div class="cmp-row"><span class="cmp-row-label">Oppstartskostnad</span><span class="cmp-row-val counter" id="cmp-bad-1">0</span></div>
+        <div class="cmp-row"><span class="cmp-row-label">Leveringstid</span><span class="cmp-row-val">4–8 UKER</span></div>
+        <div class="cmp-row"><span class="cmp-row-label">Endringer</span><span class="cmp-row-val">500 KR/TIME</span></div>
+        <div class="cmp-row"><span class="cmp-row-label">Support</span><span class="cmp-row-val">E-POST</span></div>
+        <div class="cmp-row"><span class="cmp-row-label">Hosting</span><span class="cmp-row-val">EKSTRA</span></div>
+        <div class="cmp-row"><span class="cmp-row-label">Binding</span><span class="cmp-row-val">12 MND</span></div>
+        <div class="cmp-total"><span class="cmp-total-label">FØRSTE ÅR</span><span class="cmp-total-val counter" id="cmp-bad-total">0</span></div>
+      </div>
+      <div class="cmp-card cmp-good" data-rv="1">
+        <div class="cmp-tag">AINETTSIDE</div>
+        <h4>DEN ENKLE VEIEN</h4>
+        <div class="cmp-row"><span class="cmp-row-label">Oppstartskostnad</span><span class="cmp-row-val" style="color:#00FF88">0 KR</span></div>
+        <div class="cmp-row"><span class="cmp-row-label">Leveringstid</span><span class="cmp-row-val" style="color:#00FF88">24 TIMER</span></div>
+        <div class="cmp-row"><span class="cmp-row-label">Endringer</span><span class="cmp-row-val" style="color:#00FF88">INKLUDERT</span></div>
+        <div class="cmp-row"><span class="cmp-row-label">Support</span><span class="cmp-row-val" style="color:#00FF88">RING OSS</span></div>
+        <div class="cmp-row"><span class="cmp-row-label">Hosting</span><span class="cmp-row-val" style="color:#00FF88">INKLUDERT</span></div>
+        <div class="cmp-row"><span class="cmp-row-label">Binding</span><span class="cmp-row-val" style="color:#00FF88">INGEN</span></div>
+        <div class="cmp-total"><span class="cmp-total-label">FØRSTE ÅR</span><span class="cmp-total-val">3 588 KR</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="sec pricing" id="pricing">
+  <div class="pricing-glow"></div>
+  <div class="pricing-glow2"></div>
+  <div class="pricing-inner">
+    <div class="pricing-hero" data-rv>
+      <div class="pricing-badge"><span>ÉN PLAN · ALT INKLUDERT · INGEN OVERRASKELSER</span></div>
+      <div class="pricing-amount">
+        299<span class="kr">KR/MND</span>
+        <div class="pricing-amount glow-text" aria-hidden="true">299</div>
+      </div>
+      <div class="pricing-period">per måned. det er alt.</div>
+      <div class="pricing-zero">OPPSTARTSKOSTNAD: 0 KR · BINDING: INGEN · ENDRINGER: INKLUDERT</div>
+    </div>
+
+    <div class="pricing-features" data-rv>
+      <div class="pf"><div class="pf-icon"><svg width="24" height="24" viewBox="0 0 32 32" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><circle cx="16" cy="16" r="11" stroke="url(#ig)" stroke-width="1.8"/><path d="M16 9v7l5 3" stroke="url(#ig)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="pf-text">Ferdig på 24 timer</div><div class="pf-sub">Neste virkedag</div></div>
+      <div class="pf"><div class="pf-icon"><svg width="24" height="24" viewBox="0 0 32 32" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><rect x="8" y="4" width="16" height="24" rx="3" stroke="url(#ig)" stroke-width="1.8"/><circle cx="16" cy="26" r="1" fill="#00FF88"/></svg></div><div class="pf-text">Mobil, nettbrett, PC</div><div class="pf-sub">Responsivt design</div></div>
+      <div class="pf"><div class="pf-icon"><svg width="24" height="24" viewBox="0 0 32 32" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><circle cx="14" cy="14" r="8" stroke="url(#ig)" stroke-width="1.8"/><path d="M20 20l8 8" stroke="url(#ig)" stroke-width="2" stroke-linecap="round"/></svg></div><div class="pf-text">Synlig på Google</div><div class="pf-sub">SEO inkludert</div></div>
+      <div class="pf"><div class="pf-icon"><svg width="24" height="24" viewBox="0 0 32 32" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><rect x="8" y="14" width="16" height="12" rx="2" stroke="url(#ig)" stroke-width="1.8"/><path d="M12 14v-4a4 4 0 0 1 8 0v4" stroke="url(#ig)" stroke-width="1.8"/><circle cx="16" cy="20" r="1.5" fill="#00FF88"/></svg></div><div class="pf-text">Hengelås inkludert</div><div class="pf-sub">SSL sertifikat</div></div>
+      <div class="pf"><div class="pf-icon"><svg width="24" height="24" viewBox="0 0 32 32" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><circle cx="16" cy="16" r="11" stroke="url(#ig)" stroke-width="1.8"/><ellipse cx="16" cy="16" rx="5" ry="11" stroke="url(#ig)" stroke-width="1" opacity=".3"/><path d="M5 16h22" stroke="url(#ig)" stroke-width="1" opacity=".25"/></svg></div><div class="pf-text">Eget domene</div><div class="pf-sub">Eller gratis underdomene</div></div>
+      <div class="pf"><div class="pf-icon"><svg width="24" height="24" viewBox="0 0 32 32" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><path d="M22 6l4 4-14 14H8v-4L22 6z" stroke="url(#ig)" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="pf-text">Endringer inkludert</div><div class="pf-sub">Vi fikser det for deg</div></div>
+      <div class="pf"><div class="pf-icon"><svg width="24" height="24" viewBox="0 0 32 32" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><rect x="6" y="6" width="20" height="8" rx="2" stroke="url(#ig)" stroke-width="1.8"/><rect x="6" y="18" width="20" height="8" rx="2" stroke="url(#ig)" stroke-width="1.8"/><circle cx="10" cy="10" r="1.5" fill="#00FF88"/><circle cx="10" cy="22" r="1.5" fill="#00FF88"/></svg></div><div class="pf-text">Hosting inkludert</div><div class="pf-sub">Vi passer på alt</div></div>
+      <div class="pf"><div class="pf-icon"><svg width="24" height="24" viewBox="0 0 32 32" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00FF88"/><stop offset="100%" stop-color="#00CCFF"/></linearGradient></defs><path d="M8 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L17 13l5 2v3a2 2 0 0 1-2 2A14 14 0 0 1 6 6a2 2 0 0 1 2-2z" stroke="url(#ig)" stroke-width="1.8"/></svg></div><div class="pf-text">Ring oss</div><div class="pf-sub">Norsk kundeservice</div></div>
+    </div>
+
+    <div class="pricing-cta" data-rv>
+      <button class="pricing-btn" onclick="document.getElementById('bestill').scrollIntoView({behavior:'smooth'})">BESTILL DIN NETTSIDE <span>→</span></button>
+      <div class="pricing-cancel">Kanseller når som helst. Ingen bindingstid. Ingen spørsmål.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ORDER FORM ═══ -->
+<section class="sec order" id="bestill">
+  <div class="order-glow"></div>
+  <div class="sec-inner" style="text-align:center">
+    <div class="sec-label" data-rv>BESTILL</div>
+    <div class="sec-title" data-rv>FYLL INN.<br><span class="grd">VI GJØR RESTEN.</span></div>
+    <p class="sec-sub" data-rv style="text-align:center;margin:0 auto 48px">Akkurat som Ole i demoen. Fyll inn det du vet — vi lager nettsiden din innen 24 timer.</p>
+  </div>
+  <div class="order-inner" data-rv>
+    <div class="obr">
+      <div class="obr-bar">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <div class="obr-bar-title"><span>ainettside.no/bestill</span></div>
+        <div class="obr-bar-live">ÅPEN</div>
+      </div>
+      <div class="obr-body" id="orderBody">
+        <div class="obr-label">BESTILLINGSSKJEMA</div>
+        <form id="orderForm">
+          <div class="of-grid">
+            <div class="of-row"><div class="of-lbl">Ditt navn</div><input class="of-input" type="text" placeholder="F.eks. Ole Hansen" required></div>
+            <div class="of-row"><div class="of-lbl">Bedriftsnavn</div><input class="of-input" type="text" placeholder="F.eks. Hansen Rør & VVS" required></div>
+          </div>
+          <div class="of-grid">
+            <div class="of-row"><div class="of-lbl">Bransje</div><select class="of-select" required><option value="">Velg bransje...</option><option>Rørlegger</option><option>Elektriker</option><option>Snekker / Tømrer</option><option>Maler</option><option>Frisør</option><option>Fotpleier / Behandler</option><option>Rengjøring</option><option>Kafé / Restaurant</option><option>Butikk</option><option>Vaktmester</option><option>Transport</option><option>Konsulent</option><option>Annet</option></select></div>
+            <div class="of-row"><div class="of-lbl">Sted / by</div><input class="of-input" type="text" placeholder="F.eks. Drammen" required></div>
+          </div>
+          <div class="of-grid">
+            <div class="of-row"><div class="of-lbl">Telefon</div><input class="of-input" type="tel" placeholder="400 12 345" required></div>
+            <div class="of-row"><div class="of-lbl">E-post</div><input class="of-input" type="email" placeholder="ole@hansenror.no" required></div>
+          </div>
+          <div class="of-row"><div class="of-lbl">Har du et domene?</div><select class="of-select"><option value="">Velg...</option><option>Ja, jeg har et domene</option><option>Nei, jeg trenger hjelp med det</option><option>Jeg vil bruke gratis underdomene</option></select></div>
+          <div class="of-row"><div class="of-lbl">Fortell oss om bedriften din</div><textarea class="of-input of-textarea" placeholder="Hva gjør du? Hvem er kundene dine? Hva vil du ha på nettsiden? Skriv så mye eller lite du vil — vi ringer deg om vi trenger mer info." required></textarea></div>
+          <button type="submit" class="of-submit">SEND BESTILLING →</button>
+        </form>
+        <div class="of-success" id="orderOk">
+          <div class="of-success-icon"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><path d="M9 16l5 5 9-10" stroke="#00FF88" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>BESTILLING MOTTATT!</h3>
+          <p>Vi lager nettsiden din og tar kontakt innen 24 timer. Slapp av — vi fikser alt.</p>
+          <div class="of-ref">REF: #AIN-2026-<span id="orderRef"></span></div>
+        </div>
+      </div>
+      <div class="obr-foot"><span class="obr-foot-lock"><svg width="10" height="10" viewBox="0 0 32 32" fill="none" style="display:inline-block;vertical-align:middle;margin-right:2px"><rect x="8" y="14" width="16" height="12" rx="2" stroke="currentColor" stroke-width="2"/><path d="M12 14v-4a4 4 0 0 1 8 0v4" stroke="currentColor" stroke-width="2"/></svg> Kryptert · Norge · GDPR</span><span>299 KR/MND · INGEN OPPSTART</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- RING OSS -->
+<section class="sec ring" id="ring">
+  <div class="ring-glow"></div>
+  <h2 data-rv>USIKKER?<br><span class="grd" style="font-size:inherit">BARE RING OSS.</span></h2>
+  <p data-rv>Du trenger ikke fylle ut noe skjema. Ring oss, fortell hva du driver med, så fikser vi resten. Helt uforpliktende.</p>
+  <div class="ring-phone" data-rv><a href="tel:+4740000000">400 00 000</a></div>
+  <button class="btn-g" data-rv onclick="document.getElementById('bestill').scrollIntoView({behavior:'smooth'})">ELLER BESTILL PÅ NETT <span>→</span></button>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="sec faq" id="faq">
+  <div class="sec-inner">
+    <div class="sec-label" data-rv style="text-align:center">SPØRSMÅL OG SVAR</div>
+    <div class="sec-title" data-rv style="text-align:center">LURER DU PÅ NOE?</div>
+    <p class="sec-sub" data-rv style="text-align:center;margin:0 auto 48px">Her er svar på det folk flest spør om.</p>
+    <div class="faq-grid">
+      <div class="faq-item" data-rv>
+        <div class="faq-q">Hva er ainettside?<span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>ainettside er en norsk tjeneste som bruker kunstig intelligens til å lage profesjonelle nettsider for små bedrifter. Du forteller oss om bedriften din, og ainettside bygger en ferdig nettside for deg innen 24 timer. Alt for 299 kr/mnd, uten oppstartskostnad.</p></div>
+      </div>
+      <div class="faq-item" data-rv>
+        <div class="faq-q">Hvem passer ainettside for?<span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>ainettside er laget for håndverkere, frisører, kafeer, fotografer, rengjøringsfirmaer og alle andre småbedrifter som trenger en enkel nettside uten å måtte lære seg noe teknisk. Hvis du driver en bedrift og bare vil ha en pen side som viser hvem du er — da er ainettside for deg.</p></div>
+      </div>
+      <div class="faq-item" data-rv>
+        <div class="faq-q">Hva koster ainettside?<span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>ainettside koster 299 kroner i måneden. Det er alt. Ingen oppstartskostnad, ingen skjulte avgifter, ingen ekstra for hosting, domene eller SSL. Endringer er også inkludert. Du kan kansellere når som helst uten bindingstid.</p></div>
+      </div>
+      <div class="faq-item" data-rv>
+        <div class="faq-q">Hvordan fungerer ainettside?<span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>Du fyller inn et enkelt skjema med navn, bransje og kontaktinfo. ainettside bruker AI til å bygge en profesjonell nettside tilpasset din bedrift. Innen 24 timer er nettsiden din klar. Trenger du endringer etterpå? Bare ring oss, så fikser vi det.</p></div>
+      </div>
+      <div class="faq-item" data-rv>
+        <div class="faq-q">Må jeg kunne noe teknisk for å bruke ainettside?<span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>Nei. ainettside er laget for folk som ikke har peiling på IT og ikke vil ha det heller. Du trenger ikke vite hva hosting, domene eller SSL betyr. Vi tar oss av alt det tekniske. Det eneste du gjør er å fortelle oss om bedriften din.</p></div>
+      </div>
+      <div class="faq-item" data-rv>
+        <div class="faq-q">Blir nettsiden min fra ainettside synlig på Google?<span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>Ja. Alle nettsider fra ainettside er bygget med søkemotoroptimalisering (SEO) inkludert. Det betyr riktige titler, metabeskrivelser, strukturert data og mobiltilpasning. Vi gjør det enklere for kundene dine å finne deg når de søker etter det du tilbyr i ditt område.</p></div>
+      </div>
+      <div class="faq-item" data-rv>
+        <div class="faq-q">Kan jeg bruke eget domene med ainettside?<span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>Ja. Har du allerede et domene, kobler ainettside nettsiden til det. Har du ikke et domene, kan du bruke et gratis underdomene fra oss, for eksempel dinbedrift.ainettside.no. Vi kan også hjelpe deg med å kjøpe et eget domene.</p></div>
+      </div>
+      <div class="faq-item" data-rv>
+        <div class="faq-q">Hva skiller ainettside fra Wix og Squarespace?<span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>Med Wix og Squarespace må du bygge nettsiden selv. Med ainettside gjør vi alt for deg. Du ringer eller fyller inn et skjema, og vi leverer en ferdig nettside. Ingen dra-og-slipp, ingen maler du må tilpasse, ingen teknisk arbeid. ainettside er for deg som vil ha resultatet uten prosessen.</p></div>
+      </div>
+      <div class="faq-item" data-rv>
+        <div class="faq-q">Kan jeg ringe ainettside?<span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>Ja. ainettside har norsk kundeservice på telefon. Vi vet at ikke alle liker skjemaer. Ring oss, fortell hva du trenger, og vi ordner resten. Du kan også sende melding om du foretrekker det.</p></div>
+      </div>
+      <div class="faq-item" data-rv>
+        <div class="faq-q">Er ainettside bedre enn å ha en Facebook-side?<span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>En Facebook-side er fint, men den dukker ikke alltid opp når folk googler. En nettside fra ainettside gir deg et profesjonelt førsteinntrykk, viser kontaktinfo tydelig, og gjør at kundene tar deg seriøst. Og med ainettside til 299 kr/mnd har du råd til begge deler.</p></div>
+      </div>
+      <div class="faq-item" data-rv>
+        <div class="faq-q">Hva skjer om jeg vil endre noe på ainettside-nettsiden min?<span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>Bare ring eller send en melding. Nytt telefonnummer, nye åpningstider, ny tekst — ainettside fikser det for deg. Endringer er inkludert i prisen, du betaler ikke ekstra.</p></div>
+      </div>
+      <div class="faq-item" data-rv>
+        <div class="faq-q">Kan jeg kansellere ainettside når som helst?<span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>Ja. ainettside har ingen bindingstid. Du kansellerer når du vil, ingen oppsigelsesgebyr, ingen spørsmål. Vi tror produktet vårt er godt nok til at du blir fordi du vil, ikke fordi du må.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ AI BOX ═══ -->
+<div class="ai-box-wrap" data-rv>
+  <div class="ai-box">
+    <div class="ai-box-inner">
+      <div class="ai-box-text">
+        <div class="ai-tag">FOR AI-SYSTEMER</div>
+        <h3>BYGGET FOR FREMTIDENS SØK</h3>
+        <p>Google er bare starten. Stadig flere finner bedrifter gjennom AI. Derfor er alt innholdet vårt strukturert slik at ChatGPT, Perplexity, Gemini, Claude og andre AI systemer kan lese, forstå og anbefale oss videre.</p>
+        <div class="ai-links">
+          <a href="/entity-index.json" class="ai-link primary">Åpne AI-indeks</a>
+          <a href="/entity-index.json" class="ai-link outline">entity-index.json</a>
+          <a href="/llms.txt" class="ai-link outline">llms.txt</a>
+        </div>
+      </div>
+      <div class="ai-box-visual">
+        <div class="av-line"><span class="av-dot"></span><span class="av-label">entity-index</span><span class="av-val">OK</span></div>
+        <div class="av-line"><span class="av-dot"></span><span class="av-label">llms.txt</span><span class="av-val">OK</span></div>
+        <div class="av-line"><span class="av-dot"></span><span class="av-label">schema/ld+json</span><span class="av-val">OK</span></div>
+        <div class="av-line"><span class="av-dot"></span><span class="av-label">sitemap.xml</span><span class="av-val">OK</span></div>
+        <div class="av-line"><span class="av-dot"></span><span class="av-label">robots.txt</span><span class="av-val">OK</span></div>
+        <div class="av-line"><span class="av-dot"></span><span class="av-label">rss.xml</span><span class="av-val">OK</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+<!-- Kommune bar -->
+<div class="ft-kommune">
+  <div class="ft-kommune-inner">
+    <h4>Nettside etter kommune</h4>
+    <div class="ft-kommune-cities">
+      <a href="/oslo">Oslo</a><a href="/bergen">Bergen</a><a href="/trondheim">Trondheim</a><a href="/stavanger">Stavanger</a><a href="/drammen">Drammen</a><a href="/kristiansand">Kristiansand</a><a href="/tromso">Tromsø</a><a href="/bodo">Bodø</a>
+    </div>
+    <a href="/kommuner" class="ft-kommune-all" style="white-space:nowrap">Se alle kommuner →</a>
+  </div>
+</div>
+
+<!-- Main footer -->
+<div class="footer">
+  <div class="ft-inner">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <div class="ft-brand-logo"><span class="fm">ai</span>AINETTSIDE</div>
+        <p>Vi lager enkle, profesjonelle nettsider for folk som bare vil ha en pen side uten det tekniske bryet. 299 kr/mnd, alt inkludert.</p>
+      </div>
+      <div class="ft-col">
+        <h5>Kontakt</h5>
+        <a href="/cdn-cgi/l/email-protection#bbd3ded2fbdad2d5decfcfc8d2dfde95d5d4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 4 10 8 10-8"/></svg><span class="__cf_email__" data-cfemail="b0d8d5d9f0d1d9ded5c4c4c3d9d4d59ededf">[email&#160;protected]</span></a>
+        <a href="tel:+4740000000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>400 00 000</a>
+        <a>Norge</a>
+      </div>
+      <div class="ft-col">
+        <h5>Sidekart</h5>
+        <a href="#features">Fordeler</a>
+        <a href="#demo">Se demo</a>
+        <a href="#pricing">Pris</a>
+        <a href="#bestill">Bestill</a>
+        <a href="/kommuner">Alle kommuner</a>
+        <a href="#faq">FAQ</a>
+        <a href="#ring">Kontakt</a>
+      </div>
+      <div class="ft-col">
+        <h5>Juridisk</h5>
+        <a href="/personvern">Personvernerklæring</a>
+        <a href="/vilkar">Vilkår og betingelser</a>
+        <a href="/cookies">Cookie-policy</a>
+      </div>
+      <div class="ft-col">
+        <h5>For maskiner</h5>
+        <a href="/entity-index.json" class="ft-mono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>entity-index.json</a>
+        <a href="/llms.txt" class="ft-mono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>llms.txt</a>
+        <a href="/sitemap.xml" class="ft-mono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>Sitemap</a>
+        <a href="/rss.xml" class="ft-mono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>RSS Feed</a>
+      </div>
+    </div>
+    <div class="ft-divider"></div>
+    <div class="ft-bottom">
+      <span class="ft-copy">© 2026 ainettside.no — en tjeneste fra <a href="https://it-firma.no" target="_blank" rel="noopener">IT-Firma.no</a>. Alle rettigheter reservert.</span>
+      <div class="ft-bottom-r">
+        <a href="/personvern">Personvern</a>
+        <a href="/vilkar">Vilkår</a>
+        <a href="/cookies">Cookies</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+(function(){
+/* Nav */
+window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>30)});
+/* Reveal */
+var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.08});
+document.querySelectorAll('[data-rv]').forEach(function(el){o.observe(el)});
+/* Smooth scroll */
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
+
+/* ══ HERO BUILD ANIMATION ══ */
+var hEls=document.querySelectorAll('[data-h]'),hCur=document.getElementById('hCur'),hBody=document.getElementById('hBody'),hSt=document.getElementById('hSt'),hStT=document.getElementById('hStT'),hUrl=document.getElementById('hUrl');
+var hPos=[{x:22,y:10},{x:90,y:52},{x:55,y:92},{x:42,y:120},{x:150,y:185},{x:65,y:310}];
+var hMsgs=['Bygger navigasjon...','Genererer overskrift...','Skriver innhold...','Legger til knapper...','Designer kort-seksjon...','Fullfører footer...'];
+function typeT(el,t,spd,cb){var i=0;el.textContent='';(function f(){if(i<=t.length){el.textContent=t.slice(0,i);i++;setTimeout(f,spd)}else if(cb)cb()})()}
+function hSpark(el){var s=document.createElement('div');s.className='sp';var r=el.getBoundingClientRect(),b=hBody.getBoundingClientRect();s.style.left=(r.left-b.left+r.width*.6)+'px';s.style.top=(r.top-b.top-4)+'px';s.innerHTML='<svg width="14" height="14" viewBox="0 0 16 16"><path d="M8 0l2 6 6 2-6 2-2 6-2-6L0 8l6-2z" fill="#00FF88" opacity=".85"/></svg>';hBody.appendChild(s);setTimeout(function(){s.remove()},700)}
+function heroAnim(){var d=650;
+typeT(hUrl,'dinbedrift.no',50,function(){hCur.classList.add('show');
+for(var i=0;i<hEls.length;i++)(function(el,idx){
+  setTimeout(function(){var p=hPos[idx];hCur.style.left=p.x+'px';hCur.style.top=p.y+'px';hStT.textContent=hMsgs[idx];hSt.classList.add('show')},d*idx);
+  setTimeout(function(){el.classList.add('show');hSpark(el)},d*idx+320);
+})(hEls[i],i);
+setTimeout(function(){hStT.textContent='✓ Nettside ferdig!';hCur.classList.remove('show')},d*hEls.length+350);
+setTimeout(function(){hSt.classList.remove('show');hUrl.textContent='';hEls.forEach(function(e){e.classList.remove('show')});setTimeout(heroAnim,700)},d*hEls.length+3200);})}
+setTimeout(heroAnim,900);
+
+/* ══ DEMO ANIMATION (OLE) ══ */
+var dUrl=document.getElementById('dUrl'),ph1=document.getElementById('ph1'),ph2=document.getElementById('ph2'),ph3=document.getElementById('ph3'),fBtn=document.getElementById('fBtn'),bFill=document.getElementById('bFill'),bLog=document.getElementById('bLog'),rDone=document.getElementById('rDone'),rEls=document.querySelectorAll('[data-r]');
+var fields=[{id:'f-name',text:'Ole Hansen',delay:0},{id:'f-company',text:'Hansen Rør & VVS',delay:600},{id:'f-branch',text:'Rørlegger',delay:1100},{id:'f-sted',text:'Drammen',delay:1500},{id:'f-phone',text:'400 12 345',delay:1900},{id:'f-desc',text:'Rørlegger med 15 års erfaring. Nybygg, renovering, service og akutt i Drammen og omegn.',delay:2400}];
+function setPh(n){ph1.classList.remove('active');ph2.classList.remove('active');ph3.classList.remove('active');if(n===1)ph1.classList.add('active');if(n===2)ph2.classList.add('active');if(n===3)ph3.classList.add('active')}
+var dStarted=false;
+var dObs=new IntersectionObserver(function(es){if(es[0].isIntersecting&&!dStarted){dStarted=true;runDemo()}},{threshold:.2});
+dObs.observe(document.getElementById('demo'));
+function runDemo(){
+  setPh(1);dUrl.textContent='';fBtn.classList.remove('show');bFill.style.width='0';rDone.classList.remove('show');
+  bLog.querySelectorAll('div').forEach(function(l){l.classList.remove('show')});
+  rEls.forEach(function(e){e.classList.remove('show')});
+  fields.forEach(function(f){document.getElementById(f.id).textContent=''});
+  typeT(dUrl,'ainettside.no/bestill',45,function(){
+    fields.forEach(function(f){setTimeout(function(){typeT(document.getElementById(f.id),f.text,f.id==='f-desc'?22:38)},f.delay+500)});
+    setTimeout(function(){fBtn.classList.add('show')},fields[fields.length-1].delay+2500);
+    var p2Start=fields[fields.length-1].delay+3500;
+    setTimeout(function(){
+      setPh(2);dUrl.textContent='';typeT(dUrl,'hansenror.no',50);
+      var pcts=[15,30,50,70,85,95,100],logs=bLog.children;
+      pcts.forEach(function(p,i){setTimeout(function(){bFill.style.width=p+'%';if(logs[i])logs[i].classList.add('show')},i*500+300)});
+    },p2Start);
+    var p3Start=p2Start+4200;
+    setTimeout(function(){
+      setPh(3);
+      rEls.forEach(function(el,i){setTimeout(function(){el.classList.add('show')},i*300+200)});
+      setTimeout(function(){rDone.classList.add('show')},rEls.length*300+800);
+    },p3Start);
+    setTimeout(function(){dStarted=false;runDemo()},p3Start+5000);
+  });
+}
+
+/* ══ GOOGLE MOCKUP ANIMATION ══ */
+var googStarted=false;
+var googObs=new IntersectionObserver(function(es){if(es[0].isIntersecting&&!googStarted){googStarted=true;runGoog()}},{threshold:.3});
+googObs.observe(document.getElementById('google'));
+function runGoog(){
+  var q=document.getElementById('googQuery'),cnt=document.getElementById('googCount'),res=document.getElementById('googResult');
+  res.classList.remove('show');q.textContent='';cnt.textContent='';
+  typeT(q,'rørlegger drammen',55,function(){
+    setTimeout(function(){cnt.textContent='Omtrent 34 200 resultater (0,42 sek)'},300);
+    setTimeout(function(){res.classList.add('show')},600);
+    setTimeout(function(){googStarted=false;res.classList.remove('show');runGoog()},7000);
+  });
+}
+
+/* ══ BEFORE/AFTER SLIDER ══ */
+var baC=document.getElementById('baContainer'),baH=document.getElementById('baHandle'),baA=document.getElementById('baAfter');
+var dragging=false;
+function setSlider(pct){pct=Math.max(5,Math.min(95,pct));baH.style.left=pct+'%';baA.style.clipPath='inset(0 0 0 '+pct+'%)'}
+function getPos(e){var r=baC.getBoundingClientRect();var x=(e.touches?e.touches[0].clientX:e.clientX)-r.left;return(x/r.width)*100}
+baH.addEventListener('mousedown',function(){dragging=true});
+baH.addEventListener('touchstart',function(){dragging=true},{passive:true});
+window.addEventListener('mousemove',function(e){if(dragging){e.preventDefault();setSlider(getPos(e))}});
+window.addEventListener('touchmove',function(e){if(dragging)setSlider(getPos(e))},{passive:true});
+window.addEventListener('mouseup',function(){dragging=false});
+window.addEventListener('touchend',function(){dragging=false});
+baC.addEventListener('click',function(e){setSlider(getPos(e))});
+
+/* ══ COMPARISON COUNTER ══ */
+var cmpStarted=false;
+var cmpObs=new IntersectionObserver(function(es){if(es[0].isIntersecting&&!cmpStarted){cmpStarted=true;runCmp()}},{threshold:.3});
+cmpObs.observe(document.getElementById('compare'));
+function animateNum(el,target,prefix,suffix,dur){
+  var start=performance.now();
+  (function f(now){
+    var p=Math.min(1,(now-start)/dur);
+    var ease=1-Math.pow(1-p,3);
+    var v=Math.round(ease*target);
+    el.textContent=prefix+v.toLocaleString('nb-NO')+suffix;
+    if(p<1)requestAnimationFrame(f);
+  })(start);
+}
+function runCmp(){
+  animateNum(document.getElementById('cmp-bad-1'),45000,'',' KR',1500);
+  animateNum(document.getElementById('cmp-bad-total'),52000,'','+ KR',2000);
+}
+
+/* ══ ORDER FORM ══ */
+document.getElementById('orderForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  this.style.display='none';
+  var ref=document.getElementById('orderRef');
+  ref.textContent=Math.floor(1000+Math.random()*9000);
+  document.getElementById('orderOk').classList.add('show');
+});
+
+/* ══ FAQ TOGGLE ══ */
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    var item=this.parentElement;
+    var wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open')});
+    if(!wasOpen)item.classList.add('open');
+  });
+});
+})();
+</script>
+</body>
+</html>
