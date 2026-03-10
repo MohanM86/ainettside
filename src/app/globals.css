@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body { overflow-x: hidden; }
+body { background: #0F172A; color: #fff; font-family: 'Outfit', sans-serif; -webkit-font-smoothing: antialiased; }
+::selection { background: rgba(0,255,136,.3); }
+.mono { font-family: 'IBM Plex Mono', monospace; }
+.grd { background: linear-gradient(135deg,#00FF88,#00CCFF,#8B5CF6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+/* ═══ NAV ═══ */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px clamp(20px,5vw,48px); display: flex; align-items: center; justify-content: space-between; transition: all .3s; }
+.nav.scrolled { background: rgba(15,23,42,.92); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(148,163,184,.08); }
+.nav-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; color: #fff; }
+.nav-logo .lm { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg,#00FF88,#00CCFF); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 900; color: #0F172A; }
+.nav-logo span:last-child { font-size: 16px; font-weight: 900; text-transform: uppercase; letter-spacing: .06em; }
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-links a { font-size: 13px; color: rgba(255,255,255,.3); text-decoration: none; letter-spacing: .04em; transition: color .2s; }
+.nav-links a:hover { color: rgba(255,255,255,.7); }
+.nav-cta { padding: 10px 24px; border-radius: 8px; background: linear-gradient(135deg,#00FF88,#00CCFF); color: #0F172A; font-size: 13px; font-weight: 800; border: none; cursor: pointer; letter-spacing: .06em; text-transform: uppercase; transition: all .3s; text-decoration: none; }
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(0,255,136,.2); }
+
+/* ═══ SECTIONS ═══ */
+.sec { padding: 100px clamp(20px,5vw,48px); }
+.sec-inner { max-width: 1200px; margin: 0 auto; }
+.sec-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #00FF88; letter-spacing: .25em; text-transform: uppercase; margin-bottom: 14px; }
+.sec-title { font-size: clamp(1.8rem,5vw,3rem); font-weight: 900; text-transform: uppercase; letter-spacing: -.04em; line-height: .9; margin-bottom: 16px; }
+.sec-sub { font-size: 16px; color: rgba(148,163,184,.4); line-height: 1.7; max-width: 520px; margin-bottom: 48px; }
+
+/* ═══ BUTTONS ═══ */
+.btn-g { padding: 16px 36px; border-radius: 10px; background: linear-gradient(135deg,#00FF88,#00CCFF); color: #0F172A; font-size: 15px; font-weight: 800; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: .08em; transition: all .3s; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 0 40px rgba(0,255,136,.12); text-decoration: none; }
+.btn-g:hover { transform: translateY(-2px); box-shadow: 0 0 60px rgba(0,255,136,.2); }
+.btn-o { padding: 16px 28px; border-radius: 10px; border: 1px solid rgba(148,163,184,.1); color: rgba(148,163,184,.4); font-size: 15px; font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: .06em; transition: all .2s; }
+.btn-o:hover { border-color: rgba(0,255,136,.2); color: #00FF88; }
+
+/* ═══ FOOTER ═══ */
+.ft-kommune { border-top: 1px solid rgba(255,255,255,.04); padding: 32px clamp(20px,5vw,48px); }
+.ft-kommune-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: clamp(12px,2vw,28px); overflow-x: auto; }
+.ft-kommune h4 { font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: .03em; white-space: nowrap; margin-right: 8px; }
+.ft-kommune-cities { display: flex; gap: clamp(12px,2vw,24px); white-space: nowrap; }
+.ft-kommune-cities a { font-size: 13px; color: rgba(255,255,255,.25); text-decoration: none; transition: color .2s; }
+.ft-kommune-cities a:hover { color: #00FF88; }
+.ft-kommune-all { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #00FF88; text-decoration: none; transition: opacity .2s; white-space: nowrap; }
+.ft-kommune-all:hover { opacity: .7; }
+.footer { background: #0F172A; border-top: 1px solid rgba(255,255,255,.06); padding: 60px clamp(20px,5vw,48px) 0; }
+.ft-inner { max-width: 1200px; margin: 0 auto; }
+.ft-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+.ft-brand { max-width: 280px; }
+.ft-brand-logo { font-size: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: .08em; display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.ft-brand-logo .fm { width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg,#00FF88,#00CCFF); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 900; color: #0F172A; }
+.ft-brand p { font-size: 13px; color: rgba(255,255,255,.2); line-height: 1.65; }
+.ft-col h5 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: rgba(255,255,255,.2); margin-bottom: 16px; }
+.ft-col a { display: flex; align-items: center; gap: 6px; font-size: 13px; color: rgba(255,255,255,.25); text-decoration: none; margin-bottom: 10px; transition: color .2s; }
+.ft-col a:hover { color: rgba(255,255,255,.6); }
+.ft-col a svg { width: 14px; height: 14px; opacity: .4; flex-shrink: 0; }
+.ft-col .ft-mono { font-family: 'IBM Plex Mono', monospace; font-size: 12px; }
+.ft-divider { height: 1px; background: rgba(255,255,255,.04); margin-bottom: 20px; }
+.ft-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding-bottom: 28px; }
+.ft-copy { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(255,255,255,.08); }
+.ft-copy a { color: rgba(255,255,255,.15); text-decoration: none; }
+.ft-copy a:hover { color: rgba(255,255,255,.3); }
+.ft-bottom-r { display: flex; gap: 20px; }
+.ft-bottom-r a { font-size: 11px; color: rgba(255,255,255,.1); text-decoration: none; transition: color .2s; }
+.ft-bottom-r a:hover { color: rgba(255,255,255,.3); }
+
+/* ═══ LEGAL PAGES ═══ */
+.legal-wrap { max-width: 680px; margin: 0 auto; padding: 100px clamp(20px,5vw,48px) 60px; }
+.legal-back { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: rgba(148,163,184,.4); text-decoration: none; margin-bottom: 32px; transition: color .2s; }
+.legal-back:hover { color: #00FF88; }
+.legal-wrap h1 { font-size: clamp(1.8rem,4vw,2.5rem); font-weight: 900; text-transform: uppercase; margin-bottom: 8px; letter-spacing: -.03em; }
+.legal-updated { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(148,163,184,.3); margin-bottom: 40px; }
+.legal-wrap h2 { font-size: 18px; font-weight: 800; margin: 32px 0 12px; color: rgba(255,255,255,.8); }
+.legal-wrap p { font-size: 15px; color: rgba(148,163,184,.5); line-height: 1.8; margin-bottom: 16px; }
+.legal-wrap strong { color: rgba(255,255,255,.7); }
+.legal-wrap a { color: #00FF88; }
+
+/* ═══ FAQ ═══ */
+.faq-item { border-bottom: 1px solid rgba(148,163,184,.06); }
+.faq-q { padding: 22px 0; display: flex; justify-content: space-between; align-items: center; gap: 16px; cursor: pointer; transition: color .2s; font-size: 16px; font-weight: 700; }
+.faq-q:hover { color: #00FF88; }
+.faq-toggle { width: 28px; height: 28px; border-radius: 50%; border: 1px solid rgba(148,163,184,.1); display: flex; align-items: center; justify-content: center; font-size: 16px; color: rgba(148,163,184,.25); flex-shrink: 0; transition: all .3s; }
+.faq-item.open .faq-toggle { background: #00FF88; color: #0F172A; transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s ease; }
+.faq-item.open .faq-a { max-height: 400px; padding-bottom: 22px; }
+.faq-a p { font-size: 15px; color: rgba(148,163,184,.4); line-height: 1.75; max-width: 620px; }
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:600px) {
+  .ft-grid { grid-template-columns: 1fr 1fr; }
+  .ft-brand { grid-column: span 2; }
+  .ft-bottom { flex-direction: column; text-align: center; }
+  .ft-bottom-r { justify-content: center; }
+}

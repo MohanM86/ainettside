@@ -1,0 +1,121 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ainettside.no/#organization",
+      "name": "ainettside",
+      "url": "https://ainettside.no",
+      "description": "Norsk tjeneste som lager enkle, profesjonelle nettsider for små bedrifter med kunstig intelligens. 299 kr/mnd, ferdig innen 24 timer.",
+      "foundingDate": "2026",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Norge",
+        "sameAs": "https://no.wikipedia.org/wiki/Norge"
+      },
+      "knowsLanguage": "nb",
+      "slogan": "Enkel nettside for alle"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ainettside.no/#website",
+      "name": "ainettside.no",
+      "url": "https://ainettside.no",
+      "publisher": { "@id": "https://ainettside.no/#organization" },
+      "inLanguage": "nb"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://ainettside.no/#service",
+      "name": "ainettside nettside-tjeneste",
+      "description": "AI-drevet nettside-tjeneste for små bedrifter i Norge. Ferdig nettside innen 24 timer for 299 kr/mnd.",
+      "provider": { "@id": "https://ainettside.no/#organization" },
+      "serviceType": "Webdesign og webutvikling",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Norge"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "299",
+        "priceCurrency": "NOK",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "299",
+          "priceCurrency": "NOK",
+          "unitCode": "MON",
+          "billingDuration": "P1M"
+        },
+        "description": "Enkel, profesjonell nettside med alt inkludert",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-01-01"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "ainettside tjenester",
+        "itemListElement": [
+          "Nettside design og oppsett",
+          "Hosting og drift",
+          "SSL-sertifikat",
+          "Eget domene eller underdomene",
+          "Søkemotoroptimalisering (SEO)",
+          "Endringer inkludert",
+          "Norsk kundeservice på telefon"
+        ]
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Små bedrifter i Norge",
+        "geographicArea": {
+          "@type": "Country",
+          "name": "Norge"
+        }
+      },
+      "category": [
+        "Rørleggere", "Elektrikere", "Snekkere", "Malere",
+        "Frisører", "Massører", "Fotpleiere", "Rengjøringsfirmaer",
+        "Kafeer", "Restauranter", "Personlige trenere", "Fotografer",
+        "Hundefrisører", "Blomsterbutikker", "Bilverksteder",
+        "Vinduspussere", "Vaktmestere", "Systuer"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://ainettside.no/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Hva er ainettside?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ainettside er en norsk tjeneste som bruker kunstig intelligens til å lage profesjonelle nettsider for små bedrifter. 299 kr/mnd, alt inkludert, ferdig innen 24 timer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hva koster ainettside?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ainettside koster 299 kroner i måneden. Ingen oppstartskostnad, ingen skjulte avgifter. Hosting, SSL, domene og endringer er inkludert. Ingen bindingstid."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hvem passer ainettside for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ainettside er laget for håndverkere, frisører, kafeer, fotografer, rengjøringsfirmaer og alle andre småbedrifter som trenger en enkel nettside uten å måtte lære seg noe teknisk."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hvor lang tid tar det å få nettside fra ainettside?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "De fleste nettsider fra ainettside er klare innen 24 timer etter bestilling."
+          }
+        }
+      ]
+    }
+  ]
+}

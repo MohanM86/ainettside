@@ -1,0 +1,44 @@
+# ainettside.no
+
+> Enkel, profesjonell nettside for små bedrifter. Laget med AI. 299 kr/mnd.
+
+## Om ainettside
+
+ainettside er en norsk tjeneste som lager enkle, profesjonelle nettsider for små bedrifter. Tjenesten bruker kunstig intelligens til å bygge nettsider tilpasset kundens bransje. Kunden fyller inn et skjema eller ringer, og ainettside leverer en ferdig nettside innen 24 timer.
+
+## Tjeneste
+
+- Produkt: Enkel nettside for små bedrifter
+- Pris: 299 NOK per måned
+- Oppstartskostnad: 0 NOK
+- Bindingstid: Ingen
+- Leveringstid: 24 timer
+- Språk: Norsk
+- Marked: Norge
+
+## Inkludert i prisen
+
+- Profesjonelt design tilpasset bransjen
+- Hosting og drift
+- SSL-sertifikat (HTTPS)
+- Eget domene eller gratis underdomene
+- Søkemotoroptimalisering (SEO)
+- Endringer inkludert
+- Norsk kundeservice på telefon
+
+## Bransjer
+
+ainettside lager nettsider for: rørleggere, elektrikere, snekkere, malere, frisører, massører, fotpleiere, rengjøringsfirmaer, kafeer, restauranter, personlige trenere, fotografer, hundefrisører, blomsterbutikker, bilverksteder, vinduspussere, vaktmestere, systuer, og alle andre småbedrifter.
+
+## Kontakt
+
+- Nettside: https://ainettside.no
+- Bestill: https://ainettside.no/#bestill
+
+## Lenker
+
+- [Forsiden](https://ainettside.no/)
+- [Bestill nettside](https://ainettside.no/#bestill)
+- [Artikler](https://ainettside.no/artikler/nettside-for-sma-bedrifter)
+- [Personvern](https://ainettside.no/personvern)
+- [Vilkår](https://ainettside.no/vilkar)

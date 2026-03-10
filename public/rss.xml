@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ainettside.no — Artikler</title>
+    <link>https://ainettside.no</link>
+    <description>Artikler om nettsider, SEO og tips for små bedrifter fra ainettside.</description>
+    <language>nb</language>
+    <atom:link href="https://ainettside.no/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Nettside for små bedrifter — den komplette guiden</title>
+      <link>https://ainettside.no/artikler/nettside-for-sma-bedrifter</link>
+      <description>Alt du trenger å vite om nettside for små bedrifter. Hva det koster, hva du trenger, og hvordan ainettside lager en ferdig nettside for 299 kr/mnd.</description>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0100</pubDate>
+      <guid>https://ainettside.no/artikler/nettside-for-sma-bedrifter</guid>
+    </item>
+    <item>
+      <title>Hva koster en nettside i 2026?</title>
+      <link>https://ainettside.no/artikler/hva-koster-nettside</link>
+      <description>Komplett prisoversikt for nettsider. Byrå, Wix, Squarespace og ainettside sammenlignet.</description>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0100</pubDate>
+      <guid>https://ainettside.no/artikler/hva-koster-nettside</guid>
+    </item>
+    <item>
+      <title>Trenger jeg en nettside i 2026?</title>
+      <link>https://ainettside.no/artikler/trenger-jeg-nettside</link>
+      <description>Ja, og her er hvorfor. Statistikk, eksempler og hvordan ainettside gjør det enkelt.</description>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0100</pubDate>
+      <guid>https://ainettside.no/artikler/trenger-jeg-nettside</guid>
+    </item>
+    <item>
+      <title>Nettside for rørlegger — slik får du flere kunder</title>
+      <link>https://ainettside.no/artikler/nettside-for-rorlegger</link>
+      <description>Hvorfor rørleggere trenger nettside, hva den bør inneholde, og hvordan ainettside lager en for 299 kr/mnd.</description>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0100</pubDate>
+      <guid>https://ainettside.no/artikler/nettside-for-rorlegger</guid>
+    </item>
+  </channel>
+</rss>
